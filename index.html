@@ -1,37 +1,37 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="昆山文化地图：发现文化、收藏地点、规划路线。" />
-    <title>昆山文化地图</title>
+    <meta name="description" content="Kunshan Cultural Map: discover culture, save places, and plan a route." />
+    <title>Kunshan Cultural Map</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%231c4d57' d='M8 11h48v42H8z'/%3E%3Cpath fill='%23f3b841' d='M16 21h32v5H16zm0 10h24v5H16zm0 10h32v5H16z'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="app-shell">
-      <aside class="sidebar" aria-label="文化探索">
-        <header class="brand"><span class="brand-mark">昆</span><div><strong>昆山文化地图</strong><small>Kunshan Cultural Map</small></div></header>
-        <label class="search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="搜索文化、地点或故事" autocomplete="off" /></label>
-        <div class="filter-heading"><span>文化类别</span><button id="clearFilters" class="text-button">清除</button></div>
-        <nav id="categoryFilters" class="filters" aria-label="文化类别筛选"></nav>
-        <div class="results-meta"><strong id="resultCount">0</strong><span>处文化发现</span></div>
+      <aside class="sidebar" id="explorePanel" aria-label="Cultural discovery">
+        <header class="brand"><span class="brand-mark">昆</span><div><strong id="brandTitle">Kunshan Cultural Map</strong><small id="brandSubtitle">Explore culture, place by place</small></div><div class="language-toggle" role="group" aria-label="Language"><button type="button" data-language="en">EN</button><button type="button" data-language="zh">中文</button></div></header>
+        <label class="search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search culture, places, or stories" autocomplete="off" /></label>
+        <div class="filter-heading"><span id="categoryHeading">Categories</span><button id="clearFilters" class="text-button">Clear</button></div>
+        <nav id="categoryFilters" class="filters" aria-label="Cultural category filters"></nav>
+        <div class="results-meta"><strong id="resultCount">0</strong><span id="resultLabel">cultural discoveries</span></div>
         <section id="itemList" class="item-list" aria-label="文化发现列表"></section>
-        <button id="surpriseButton" class="surprise" type="button"><span>✦</span> 随机发现一处文化</button>
+        <button id="surpriseButton" class="surprise" type="button"><span>✦</span> Surprise me</button>
       </aside>
 
       <main class="map-area">
-        <div class="map-toolbar"><span class="map-label"><i></i> 昆山市 · 文化探索</span><div class="zoom-controls"><button id="zoomIn" aria-label="放大地图">+</button><button id="zoomOut" aria-label="缩小地图">−</button><button id="resetMap" aria-label="重置地图">⌖</button></div></div>
-        <div id="mapViewport" class="map-viewport" aria-label="昆山交互地图，可拖动和缩放" tabindex="0"></div>
-        <div class="map-hint">拖动地图以探索 · 滚轮或按钮缩放</div>
+        <div class="map-toolbar"><span id="mapLabel" class="map-label"><i></i> Kunshan · Cultural discovery</span><div class="zoom-controls"><button id="zoomIn" aria-label="Zoom in">+</button><button id="zoomOut" aria-label="Zoom out">−</button><button id="resetMap" aria-label="Reset map">⌖</button></div></div>
+        <div id="mapViewport" class="map-viewport" aria-label="Interactive Kunshan map. Drag and zoom to explore." tabindex="0"></div>
+        <div id="mapHint" class="map-hint">Drag to explore · Scroll or use controls to zoom</div>
       </main>
 
       <aside id="detailPanel" class="detail-panel" aria-live="polite"></aside>
-      <section id="routePanel" class="route-panel" aria-label="文化路线规划"></section>
+      <section id="routePanel" class="route-panel" aria-label="Cultural route planning"></section>
     </div>
     <script src="data.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="app.js?v=osm-standard-1"></script>
+    <script src="app.js?v=i18n-1"></script>
   </body>
 </html>
