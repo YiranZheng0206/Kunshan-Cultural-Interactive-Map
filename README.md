@@ -3,7 +3,7 @@
 A bilingual interactive map for exploring Kunshan’s places, stories, traditions, cultural food, and people.
 
 ## Demo
-https://github.com/YiranZheng0206/Kunshan-Cultural-Interactive-Map/issues/1#issue-5626872436
+[https://github.com/YiranZheng0206/Kunshan-Cultural-Interactive-Map/issues/1#issue-5626872436](https://github.com/user-attachments/assets/9b304081-f009-47d3-8d3f-7702922eb92e)
 
 ## Audience & goal
 
