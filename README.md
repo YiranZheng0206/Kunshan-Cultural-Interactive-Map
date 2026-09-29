@@ -2,6 +2,8 @@
 
 A bilingual interactive map for exploring Kunshan’s places, stories, traditions, cultural food, and people.
 
+##Demo
+https://github.com/YiranZheng0206/Kunshan-Cultural-Interactive-Map/issues/1#issue-5626872436
 ## Audience & goal
 
 Designed for first-time visitors to Kunshan who want reliable cultural context and an efficient way to build a visit route.
