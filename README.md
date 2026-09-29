@@ -1,50 +1,33 @@
 # Kunshan Cultural Interactive Map
 
-A bilingual interactive map for exploring Kunshan’s places, stories, traditions, cultural food, and people.
+A bilingual course prototype for exploring cultural records in Kunshan. This version integrates the [Kunshan-Map dataset](https://github.com/JuniceLin/Kunshan-Map) by JuniceLin.
 
-## Demo
-[https://github.com/YiranZheng0206/Kunshan-Cultural-Interactive-Map/issues/1#issue-5626872436](https://github.com/user-attachments/assets/9b304081-f009-47d3-8d3f-7702922eb92e)
+## Run
 
-## Audience & goal
-
-Designed for first-time visitors to Kunshan who want reliable cultural context and an efficient way to build a visit route.
-
-## Features
-
-- Search and filter cultural discoveries by category
-- Explore local cultural items on an interactive Kunshan map
-- View bilingual English / 中文 names, stories, tags, and practical information
-- Save places with “Want to visit,” remove or reorder saved stops, and generate a suggested cultural route
-- Draw the generated route on the map
-- Remember the selected interface language during the browser session
-
-## Technologies
-
-- HTML, CSS, and vanilla JavaScript
-- Leaflet 1.9.4
-- OpenStreetMap raster tiles
-- Browser localStorage for language preference
-
-## Run locally
-
-From the project folder, run:
+Open with a local HTTP server (or deploy the repository to Vercel):
 
 ```bash
 python3 -m http.server 4173 --bind 127.0.0.1
 ```
 
-Then open [http://127.0.0.1:4173/index.html](http://127.0.0.1:4173/index.html).
+Visit `http://127.0.0.1:4173/`.
 
-## Live site
+## What changed
 
-[https://kunshan-cultural-interactive-map.vercel.app](https://kunshan-cultural-interactive-map.vercel.app)
+- **82 curated cultural records** across Places, Artifacts, Food, Traditions, and Stories. Search names, descriptions and towns; filter by category.
+- **Basic idiom:** Bar chart compares the five category counts (40, 8, 12, 14, 8). Click a bar to filter the map and list.
+- **Network idiom:** Uses the dataset's **67 source-linked relationships**. To keep labels and connections readable, the initial view displays the 20 records with most links. Select any record in the map or list to display its direct neighborhood. The detail panel provides relation names and source links. A missing edge is not evidence of no cultural connection.
+- **Map idiom:** Markers show the dataset's geographic anchors. Every detail lists coordinate precision; most anchors indicate an area or associated place, not an exact entrance.
+- **Route:** Only the 12 records labelled `specific-site` can be saved. The nearest-neighbor route connects their coordinates with straight lines. It does not use a street network, travel-time data, public transport, opening hours or live navigation.
 
-_INFOSCI 301 project._
+The records are curated examples, not a complete census. Some English descriptions remain in the dataset's original English even when the interface is switched to Chinese.
 
-## Visualization idioms and data scope
+## Files and attribution
 
-- **Basic idiom — bar chart:** The Patterns view compares the number of entries in each category. Clicking a bar isolates that category in the map and list; clicking it again restores all categories. Counts describe this 12-entry project sample, not the total cultural sites in Kunshan.
-- **Network idiom — node-link diagram:** Each node is a cultural entry, colored by category. The 12 links in `data.js` are hand-curated thematic associations (water-town heritage, local food, literary history, etc.). Clicking a node opens its details. The links do **not** represent roads, measured similarity, or verified travel times. Edge labels are available as SVG tooltips.
-- **Map idiom:** Geographic positions and the suggested route remain in the Map view. The generated route connects selected coordinates in sequence with straight lines; it is not turn-by-turn navigation. The time summary uses visit durations and a fixed 18-minute gap per stop, not live traffic.
+`data/kunshan-cultural-dataset.json` is a snapshot of the source repository, including records, relationships, sources and metadata. `data.js` contains the same data as a static script so the app can run without a build step. See the source repository's `DATA_NOTES.md` for the editorial and spatial limits. The source repository's MIT license is included as `SOURCE_LICENSE.txt`; third-party facts, images and map tiles remain governed by their own terms. This version does not copy its photos. Map tiles © OpenStreetMap contributors.
 
-The examples in `data.js` are editorial demo records. Before public tourist use, verify coordinates, venue names, opening hours, and sources with local authorities or venue operators.
+To update the snapshot, copy the latest source JSON into `data/kunshan-cultural-dataset.json` and regenerate `data.js`:
+
+```bash
+python3 -c 'import json,pathlib; p=pathlib.Path("data/kunshan-cultural-dataset.json"); pathlib.Path("data.js").write_text("window.KUNSHAN_DATA = "+json.dumps(json.loads(p.read_text()),ensure_ascii=False,separators=(",",":"))+";\\n")'
+```
