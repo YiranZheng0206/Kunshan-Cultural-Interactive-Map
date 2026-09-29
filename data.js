@@ -15,3 +15,13 @@ window.KUNSHAN_ITEMS = [
 window.CATEGORIES = [
   {id:'places',icon:'⌂',color:'#b85c3f'}, {id:'stories',icon:'✦',color:'#a26842'}, {id:'traditions',icon:'◎',color:'#6e5aa4'}, {id:'food',icon:'◒',color:'#d87932'}, {id:'people',icon:'♙',color:'#395f9a'}
 ];
+
+// Editorial links for the network view. These describe cultural or geographic themes, not roads.
+window.CULTURAL_LINKS = [
+  ['zhouzhuang','dragon','water-town tradition'], ['zhouzhuang','jinxi','water-town heritage'],
+  ['jinxi','qiandeng','historic water towns'], ['qiandeng','gu','Gu Yanwu heritage'],
+  ['gu','kunqu','Kunshan heritage'], ['kunqu','dragon','performance tradition'],
+  ['kunqu','sanbao','intangible and local heritage'], ['tinglin','gujian','literary heritage'],
+  ['tinglin','sanbao','Yushan cultural landscape'], ['tinglin','aofeng','Yushan neighborhood'],
+  ['bacon','aofeng','local food culture'], ['zhaoling','tinglin','layers of local history']
+];

@@ -11,7 +11,7 @@
       practical: 'Practical information', save: '＋ Want to visit', saved: '✓ Added to my list', close: 'Close details', marker: 'View', routeTitle: 'My cultural route',
       savedPlaces: count => `${count} saved place${count === 1 ? '' : 's'}`, routeEmpty: 'Add cultural places with “Want to visit” to create an efficient route.',
       generate: 'Generate cultural route', routeSummary: (stops, minutes) => `Suggested route · ${stops} stops · about ${Math.floor(minutes / 60)}h${minutes % 60 ? ` ${minutes % 60}m` : ''}`,
-      remove: 'Remove', categories: { places: 'Places', stories: 'Stories', traditions: 'Traditions', food: 'Cultural food', people: 'People' }
+      remove: 'Remove', patterns: 'Patterns', mapView: 'Map', patternsTitle: 'Cultural patterns', patternsIntro: 'Compare what this sample covers and follow curated connections.', chartTitle: 'Discoveries by category', chartHint: 'Select a bar to filter the map and list.', networkTitle: 'Cultural connections', networkHint: 'Select a node to read its story. Lines show thematic links, not travel routes.', networkAria: 'Network of cultural discoveries', linkCount: count => `${count} thematic links · 12 sample entries`, categories: { places: 'Places', stories: 'Stories', traditions: 'Traditions', food: 'Cultural food', people: 'People' }
     },
     zh: {
       title: '昆山文化地图', subtitle: '一处一处，探索昆山文化', search: '搜索文化、地点或故事', categoryHeading: '文化类别', clear: '清除',
@@ -22,11 +22,11 @@
       practical: '实用信息', save: '＋ 想去这里', saved: '✓ 已加入我的清单', close: '关闭详情', marker: '查看', routeTitle: '我的文化路线',
       savedPlaces: count => `${count} 个想去地点`, routeEmpty: '将文化地点加入“想去这里”，就能生成一条高效路线。',
       generate: '生成文化路线', routeSummary: (stops, minutes) => `建议路线 · ${stops} 站 · 约 ${Math.floor(minutes / 60)} 小时${minutes % 60 ? ` ${minutes % 60} 分钟` : ''}`,
-      remove: '移除', categories: { places: '文化地点', stories: '文化故事', traditions: '传统技艺', food: '文化美食', people: '文化人物' }
+      remove: '移除', patterns: '文化关联', mapView: '地图', patternsTitle: '昆山文化关联', patternsIntro: '比较示例数据中的文化类别，探索人工整理的关联。', chartTitle: '各类别文化发现数量', chartHint: '点击条形筛选地图与列表。', networkTitle: '文化关联网络', networkHint: '点击节点阅读故事。连线代表主题关联，并非交通路线。', networkAria: '昆山文化发现关联网络', linkCount: count => `${count} 条主题关联 · 12 条示例记录`, categories: { places: '文化地点', stories: '文化故事', traditions: '传统技艺', food: '文化美食', people: '文化人物' }
     }
   };
   const getStoredLanguage = () => { try { return localStorage.getItem('kunshan-map-language'); } catch { return null; } };
-  const state = { language: getStoredLanguage() === 'zh' ? 'zh' : 'en', query: '', active: new Set(categories.map(c => c.id)), selected: null, saved: [], route: [] };
+  const state = { language: getStoredLanguage() === 'zh' ? 'zh' : 'en', query: '', active: new Set(categories.map(c => c.id)), selected: null, saved: [], route: [], view: 'map' };
   const $ = id => document.getElementById(id);
   const t = () => translations[state.language];
   const field = (item, name) => item[`${name}${state.language === 'zh' ? 'Zh' : 'En'}`];
@@ -54,10 +54,11 @@
     $('zoomIn').setAttribute('aria-label', t().zoomIn); $('zoomOut').setAttribute('aria-label', t().zoomOut); $('resetMap').setAttribute('aria-label', t().reset);
     $('explorePanel').setAttribute('aria-label', t().exploreAria); document.querySelector('.language-toggle').setAttribute('aria-label', t().languageAria); $('categoryFilters').setAttribute('aria-label', t().filterAria); $('itemList').setAttribute('aria-label', t().listAria); $('routePanel').setAttribute('aria-label', t().routeAria);
     document.querySelectorAll('[data-language]').forEach(button => { button.classList.toggle('active', button.dataset.language === language); button.setAttribute('aria-pressed', String(button.dataset.language === language)); });
+    $('mapViewButton').textContent = t().mapView; $('patternsViewButton').textContent = t().patterns; $('patternsTitle').textContent = t().patternsTitle; $('patternsIntro').textContent = t().patternsIntro; $('chartTitle').textContent = t().chartTitle; $('chartHint').textContent = t().chartHint; $('networkTitle').textContent = t().networkTitle; $('networkHint').textContent = t().networkHint; $('networkGraph').setAttribute('aria-label', t().networkAria);
     refresh(); renderDetails(); renderRoute();
   }
   function renderFilters() { $('categoryFilters').innerHTML = categories.map(c => `<button class="filter ${state.active.has(c.id) ? 'active' : ''}" data-category="${c.id}" style="--category:${c.color}"><span>${c.icon}</span>${t().categories[c.id]}<b>${items.filter(i => i.category === c.id).length}</b></button>`).join(''); }
-  function select(id, focus = false) { state.selected = items.find(i => i.id === id) || null; renderDetails(); renderMarkers(); renderList(); if (focus && state.selected) map.flyTo([state.selected.lat, state.selected.lng], Math.max(map.getZoom(), 14), { duration: .65 }); document.querySelector(`.item-card[data-id="${id}"]`)?.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+  function select(id, focus = false) { state.selected = items.find(i => i.id === id) || null; renderDetails(); renderMarkers(); renderList(); renderPatterns(); if (focus && state.selected) { setView('map'); map.flyTo([state.selected.lat, state.selected.lng], Math.max(map.getZoom(), 14), { duration: .65 }); } document.querySelector(`.item-card[data-id="${id}"]`)?.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
   function renderList() { const matches = filtered(); $('resultCount').textContent = matches.length; $('itemList').innerHTML = matches.length ? matches.map(i => `<button class="item-card ${state.selected?.id === i.id ? 'selected' : ''}" data-id="${i.id}"><span class="item-icon" style="background:${i.color}18;color:${i.color}">${i.image}</span><span><strong>${itemName(i)}</strong><small>${t().categories[i.category]}</small><em>${itemTags(i).slice(0, 2).join(' · ')}</em></span><i>›</i></button>`).join('') : `<div class="empty">${t().emptyList}</div>`; }
   function renderMarkers() { markerLayer.clearLayers(); filtered().forEach(item => L.marker([item.lat, item.lng], { icon: markerIcon(item, state.selected?.id === item.id), keyboard: true, title: itemName(item), alt: `${t().marker} ${itemName(item)}`, riseOnHover: true }).on('click', () => select(item.id)).addTo(markerLayer)); }
   function renderDetails() {
@@ -76,7 +77,25 @@
   }
   function generateRoute() { const remaining = state.saved.map(id => items.find(i => i.id === id)); if (remaining.length < 2) return; const ordered = [remaining.shift()]; while (remaining.length) { const current = ordered.at(-1); remaining.sort((a, b) => (distanceKm(current, a) + (a.category === current.category ? 5.5 : 0)) - (distanceKm(current, b) + (b.category === current.category ? 5.5 : 0))); ordered.push(remaining.shift()); } state.route = ordered.map(i => i.id); renderRoute(); renderRouteLine(); }
   function renderRouteLine() { routeLine?.remove(); routeStops?.remove(); const route = state.route.map(id => items.find(i => i.id === id)); if (route.length < 2) return; routeLine = L.polyline(route.map(item => [item.lat, item.lng]), { color: '#d94f42', weight: 5, opacity: .88, dashArray: '10 7', lineCap: 'round', lineJoin: 'round' }).addTo(map); routeStops = L.layerGroup(route.map((item, index) => L.marker([item.lat, item.lng], { interactive: false, icon: L.divIcon({ className: 'route-stop-wrap', html: `<span class="route-stop">${index + 1}</span>`, iconSize: [24, 24], iconAnchor: [12, 12] }) }))).addTo(map); }
-  function refresh() { renderFilters(); renderList(); renderMarkers(); }
+  function renderPatterns() {
+    const max = Math.max(...categories.map(c => items.filter(i => i.category === c.id).length));
+    $('categoryChart').innerHTML = categories.map(c => { const count = items.filter(i => i.category === c.id).length; return `<button type="button" class="chart-row ${state.active.has(c.id) ? 'active' : ''}" data-chart-category="${c.id}" aria-pressed="${state.active.has(c.id)}"><span>${t().categories[c.id]}</span><span class="chart-track"><span style="width:${count / max * 100}%;background:${c.color}"></span></span><b>${count}</b></button>`; }).join('');
+    const cx = 300, cy = 185, rx = 215, ry = 135;
+    const positions = new Map(items.map((item, n) => [item.id, {x: cx + rx * Math.cos(2 * Math.PI * n / items.length - Math.PI / 2), y: cy + ry * Math.sin(2 * Math.PI * n / items.length - Math.PI / 2)}]));
+    const links = window.CULTURAL_LINKS;
+    const edges = links.map(([a,b,reason]) => { const p = positions.get(a), q = positions.get(b); return `<line class="network-edge" data-a="${a}" data-b="${b}" x1="${p.x}" y1="${p.y}" x2="${q.x}" y2="${q.y}"><title>${reason}</title></line>`; }).join('');
+    const nodes = items.map(item => { const p = positions.get(item.id), active = state.active.has(item.category); return `<g class="network-node ${active ? '' : 'muted'} ${state.selected?.id === item.id ? 'selected' : ''}" data-node="${item.id}" tabindex="0" role="button" aria-label="${itemName(item)}" transform="translate(${p.x},${p.y})"><circle r="19" fill="${item.color}"/><text class="node-icon" text-anchor="middle" dominant-baseline="central">${item.image}</text><text class="node-label" text-anchor="middle" y="34">${itemName(item)}</text></g>`; }).join('');
+    $('networkGraph').innerHTML = edges + nodes;
+    $('networkLegend').textContent = t().linkCount(links.length);
+  }
+  function setView(view) { state.view = view; const patterns = view === 'patterns'; $('patternsPanel').hidden = !patterns; $('mapViewButton').setAttribute('aria-pressed', String(!patterns)); $('patternsViewButton').setAttribute('aria-pressed', String(patterns)); if (!patterns) requestAnimationFrame(() => map.invalidateSize()); }
+  function refresh() { renderFilters(); renderList(); renderMarkers(); renderPatterns(); }
+  $('mapViewButton').addEventListener('click', () => setView('map'));
+  $('patternsViewButton').addEventListener('click', () => setView('patterns'));
+  $('categoryChart').addEventListener('click', event => { const button = event.target.closest('[data-chart-category]'); if (!button) return; const id = button.dataset.chartCategory; state.active = new Set(state.active.size === 1 && state.active.has(id) ? categories.map(c => c.id) : [id]); refresh(); });
+  function networkSelect(event) { const node = event.target.closest('[data-node]'); if (node) select(node.dataset.node); }
+  $('networkGraph').addEventListener('click', networkSelect);
+  $('networkGraph').addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); networkSelect(event); } });
   $('categoryFilters').addEventListener('click', event => { const button = event.target.closest('[data-category]'); if (!button) return; const id = button.dataset.category; state.active.has(id) ? state.active.delete(id) : state.active.add(id); refresh(); });
   $('itemList').addEventListener('click', event => { const button = event.target.closest('[data-id]'); if (button) select(button.dataset.id, true); });
   $('searchInput').addEventListener('input', event => { state.query = event.target.value; refresh(); }); $('clearFilters').addEventListener('click', () => { state.query = ''; $('searchInput').value = ''; state.active = new Set(categories.map(c => c.id)); refresh(); });

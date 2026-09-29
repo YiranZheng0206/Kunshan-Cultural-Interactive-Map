@@ -40,3 +40,11 @@ Then open [http://127.0.0.1:4173/index.html](http://127.0.0.1:4173/index.html).
 [https://kunshan-cultural-interactive-map.vercel.app](https://kunshan-cultural-interactive-map.vercel.app)
 
 _INFOSCI 301 project._
+
+## Visualization idioms and data scope
+
+- **Basic idiom — bar chart:** The Patterns view compares the number of entries in each category. Clicking a bar isolates that category in the map and list; clicking it again restores all categories. Counts describe this 12-entry project sample, not the total cultural sites in Kunshan.
+- **Network idiom — node-link diagram:** Each node is a cultural entry, colored by category. The 12 links in `data.js` are hand-curated thematic associations (water-town heritage, local food, literary history, etc.). Clicking a node opens its details. The links do **not** represent roads, measured similarity, or verified travel times. Edge labels are available as SVG tooltips.
+- **Map idiom:** Geographic positions and the suggested route remain in the Map view. The generated route connects selected coordinates in sequence with straight lines; it is not turn-by-turn navigation. The time summary uses visit durations and a fixed 18-minute gap per stop, not live traffic.
+
+The examples in `data.js` are editorial demo records. Before public tourist use, verify coordinates, venue names, opening hours, and sources with local authorities or venue operators.
