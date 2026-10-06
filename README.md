@@ -2,6 +2,9 @@
 
 A bilingual course prototype for exploring cultural records in Kunshan. This version integrates the [Kunshan-Map dataset](https://github.com/JuniceLin/Kunshan-Map) by JuniceLin.
 
+#Demo Video
+https://youtu.be/hiJvn93Gk6s
+
 ## Run
 
 Open with a local HTTP server (or deploy the repository to Vercel):
