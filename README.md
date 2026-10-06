@@ -2,8 +2,13 @@
 
 A bilingual course prototype for exploring cultural records in Kunshan. This version integrates the [Kunshan-Map dataset](https://github.com/JuniceLin/Kunshan-Map) by JuniceLin.
 
-#Demo Video
-https://youtu.be/hiJvn93Gk6s
+## Demo Video
+
+[![Watch the Kunshan Cultural Interactive Map demo](https://img.youtube.com/vi/hiJvn93Gk6s/hqdefault.jpg)](https://youtu.be/hiJvn93Gk6s)
+
+▶️ [Watch the demo on YouTube](https://youtu.be/hiJvn93Gk6s)
+
+The English transcript is included in Appendix E of the project report.
 
 ## Run
 
