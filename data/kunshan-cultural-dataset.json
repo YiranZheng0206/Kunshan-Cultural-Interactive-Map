@@ -13,7 +13,7 @@
     ],
     "method": "Curated synthesis of official Kunshan public records and UNESCO documentation. Raw official name lists are retained separately.",
     "spatialNote": "Every entity has a geographic anchor and a locationPrecision label. Town, district, regional and associated-site anchors are not surveyed entrances and must not be used as navigation coordinates.",
-    "imageNote": "The web prototype uses cached real photographs from cited government pages and Wikimedia Commons. A contextual place photograph may be shared by multiple related records; no AI-generated historical object or place is presented as documentary evidence.",
+    "imageNote": "Each cultural record uses a distinct locally cached documentary or contextual photograph. Image source, credit, and contextual role are retained per record; contextual images are not presented as photographs of the named object itself.",
     "evidenceBoundary": "The dataset does not claim that visitors generally overlook lesser-known places, that current promotion is ineffective, or that the interface improves understanding. Those remain research hypotheses requiring evaluation."
   },
   "counts": {
@@ -42,9 +42,11 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/tinglin.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Tinglin Garden"
+      "image": "assets/fragments/01-tinglin_garden.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Jiangsu_Suzhou_Kunshan_-_Beizhoucun_IMG_7282.jpg",
+      "imageCredit": "Bjoertvedt · CC BY-SA 4.0",
+      "imageRole": "contextual culture image",
+      "summaryZh": "昆山市中心的园林，以顾炎武命名，并与昆山三宝相关联。"
     },
     {
       "id": "forest_park",
@@ -65,9 +67,11 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/forest.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Forest Park"
+      "image": "assets/fragments/02-forest_park.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:%E6%98%86%E5%B1%B1%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9B%AD_-_panoramio.jpg",
+      "imageCredit": "车文奇 · CC BY-SA 3.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "位于昆山市中心西北的大型城市湿地与公共公园。"
     },
     {
       "id": "opera_museum",
@@ -89,9 +93,11 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/bacheng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Bacheng"
+      "image": "assets/fragments/03-opera_museum.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:The_China_Kunqu_Museum_180420_01.jpg",
+      "imageCredit": "Ohtashinichiro · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "展示中国戏曲历史与丰富剧种的博物馆。"
     },
     {
       "id": "zhouzhuang_town",
@@ -112,9 +118,11 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/04-zhouzhuang_town.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Zhouzhuang_2.jpg",
+      "imageCredit": "ngader · CC BY 2.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "拥有水道、桥梁和临水民居的历史水乡。"
     },
     {
       "id": "twin_bridges",
@@ -135,9 +143,11 @@
       "placeId": "zhouzhuang_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/05-twin_bridges.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Zhouzhuang_-_55459389322.jpg",
+      "imageCredit": "xiquinhosilva · CC BY 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "周庄水道网络中的一组双桥地标。"
     },
     {
       "id": "zhang_hall",
@@ -158,9 +168,11 @@
       "placeId": "zhouzhuang_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/06-zhang_hall.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Jiangsu_Suzhou_Kunshan_-_Huangjiadai_IMG_7324_Qing_Yang_Jiang_(qingyang_river).jpg",
+      "imageCredit": "Bjoertvedt · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "周庄一处推荐参观的历史民居。"
     },
     {
       "id": "shen_hall",
@@ -181,9 +193,11 @@
       "placeId": "zhouzhuang_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/07-shen_hall.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Jiangsu_Suzhou_Kunshan_-_Beixingdu_IMG_7290.jpg",
+      "imageCredit": "Bjoertvedt · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "与沈氏家族相关的周庄历史民居。"
     },
     {
       "id": "zhenfeng_street",
@@ -204,9 +218,11 @@
       "placeId": "zhouzhuang_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/08-zhenfeng_street.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Zhouzhuang_narrow_streets_(6276866802).jpg",
+      "imageCredit": "Arend from Oosterhout, Netherlands · CC BY 2.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "周庄一条以贞丰命名的文化街。"
     },
     {
       "id": "shen_residence",
@@ -227,9 +243,11 @@
       "placeId": "zhouzhuang_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/09-shen_residence.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Shen_Wansan-md.jpg",
+      "imageCredit": "User:Gisling · CC BY-SA 3.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "位于周庄、介绍沈万三生平的参观地点。"
     },
     {
       "id": "chengxu_temple",
@@ -250,9 +268,11 @@
       "placeId": "zhouzhuang_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/10-chengxu_temple.png",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Quanfu_Temple,_Zhouzhuang_-_May_2011_(5695796200).jpg",
+      "imageCredit": "kevinmcgill from Den Bosch, Netherlands · CC BY-SA 2.0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "列入周庄推荐景点的道教宫观。"
     },
     {
       "id": "old_opera_stage",
@@ -273,9 +293,11 @@
       "placeId": "zhouzhuang_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/11-old_opera_stage.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Peony_Pavilion_%EF%BC%88%E7%89%A1%E4%B8%B9%E4%BA%AD%EF%BC%893.jpg",
+      "imageCredit": "Bohan_伯韩 Shen_沈 from Beijing, China · CC BY-SA 2.0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "周庄历史区域内的演出场所。"
     },
     {
       "id": "jinxi_town",
@@ -296,9 +318,11 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/12-jinxi_town.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Jinxi-townkunshan-2_20655877503_o.jpg",
+      "imageCredit": "唐戈 · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "被湖泊环绕、以民间博物馆闻名的水乡。"
     },
     {
       "id": "ancient_tile_museum",
@@ -320,9 +344,11 @@
       "placeId": "jinxi_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/13-ancient_tile_museum.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Western_Han_Pottery_Roof_Tiles_(32833789534).jpg",
+      "imageCredit": "Gary Todd from Xinzheng, China · CC0",
+      "imageRole": "specific-search result",
+      "summaryZh": "诠释古代砖、瓦与窑业文化的博物馆。"
     },
     {
       "id": "clay_sculpture_hall",
@@ -343,9 +369,11 @@
       "placeId": "jinxi_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/14-clay_sculpture_hall.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Chinese_clay_figures_(1914)_(20615988231).jpg",
+      "imageCredit": "Laufer, Berthold, 1874-1934 · No restrictions",
+      "imageRole": "specific-search result",
+      "summaryZh": "专门展示泥塑的民间博物馆场所。"
     },
     {
       "id": "jinxi_ballad_center",
@@ -367,9 +395,11 @@
       "placeId": "jinxi_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/15-jinxi_ballad_center.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunshan,_Suzhou,_Jiangsu,_China_-_panoramio_(79).jpg",
+      "imageCredit": "song songroov · CC BY 3.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "与锦溪宣卷说唱文化相关的场所。"
     },
     {
       "id": "lianchi_temple",
@@ -390,9 +420,11 @@
       "placeId": "jinxi_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/16-lianchi_temple.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Chinese_shrine_to_a_statue_of_the_Child-giving_Guanyin_(%E9%80%81%E5%AD%90%E8%A7%80%E9%9F%B3_Songzi_Guanyin)_in_Daming_Temple_(_%E5%A4%A7%E6%98%8E%E5%AF%BA_D%C3%A0m%C3%ADng-s%C3%AC)_in_Yangzhou,_Jiangsu,_China.jpg",
+      "imageCredit": "Nyarlathotep1001 · CC BY-SA 4.0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "列入锦溪推荐景点的寺院。"
     },
     {
       "id": "concubine_tomb",
@@ -413,9 +445,11 @@
       "placeId": "jinxi_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/17-concubine_tomb.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Town_of_Jinxi_Jiangsu_China.JPG",
+      "imageCredit": "Emcc83 · CC BY-SA 3.0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "位于水中的纪念遗址，也是锦溪知名叙事的核心地点。"
     },
     {
       "id": "wenchang_pavilion",
@@ -436,9 +470,11 @@
       "placeId": "jinxi_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/18-wenchang_pavilion.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:20240803_Wenchang_Pavilion_03.jpg",
+      "imageCredit": "Windmemories · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "锦溪历史区域内的一座楼阁。"
     },
     {
       "id": "zhudian_kiln",
@@ -459,9 +495,11 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/19-zhudian_kiln.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Mantou_Kiln_(Steamed_Bread_Shaped_Kiln)_(9979218776).jpg",
+      "imageCredit": "Gary Todd from Xinzheng, China · CC0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "由旧砖窑改建、展示当地制砖历史的博物馆。"
     },
     {
       "id": "qiandeng_town",
@@ -482,9 +520,11 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/qiandeng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Qiandeng"
+      "image": "assets/fragments/20-qiandeng_town.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:%E5%8D%83%E7%81%AF%E9%95%87%E9%A1%BE%E5%9D%9A%E7%BA%AA%E5%BF%B5%E9%A6%86.jpg",
+      "imageCredit": "Gisling · CC BY-SA 3.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "与顾炎武、顾坚、昆曲及长石板街相关的历史古镇。"
     },
     {
       "id": "stone_street",
@@ -505,9 +545,11 @@
       "placeId": "qiandeng_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/qiandeng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Qiandeng"
+      "image": "assets/fragments/21-stone_street.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunshan,_Suzhou,_Jiangsu,_China_-_panoramio_(76).jpg",
+      "imageCredit": "song songroov · CC BY 3.0",
+      "imageRole": "contextual culture image",
+      "summaryZh": "一条长约1500米、两旁分布历史民居的街道。"
     },
     {
       "id": "gu_yanwu_residence",
@@ -529,9 +571,11 @@
       "placeId": "qiandeng_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/qiandeng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Qiandeng"
+      "image": "assets/fragments/22-gu_yanwu_residence.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:%E5%8D%83%E7%81%AF%E9%95%87%E9%A1%BE%E7%82%8E%E6%AD%A6%E6%95%85%E5%B1%85.jpg",
+      "imageCredit": "Gisling · CC BY-SA 3.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "与学者顾炎武相关的全国重点文物保护单位故居。"
     },
     {
       "id": "gu_jian_memorial",
@@ -552,9 +596,11 @@
       "placeId": "qiandeng_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/qiandeng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Qiandeng"
+      "image": "assets/fragments/23-gu_jian_memorial.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunqu_Opera,_Suzhou_(50652659992).jpg",
+      "imageCredit": "Hugh Llewelyn from Keynsham, UK · CC BY-SA 2.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "介绍顾坚与昆曲源流的纪念场馆。"
     },
     {
       "id": "qinfeng_tower",
@@ -576,9 +622,11 @@
       "placeId": "qiandeng_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/qiandeng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Qiandeng"
+      "image": "assets/fragments/24-qinfeng_tower.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunshan,_Suzhou,_Jiangsu,_China_-_panoramio_(87).jpg",
+      "imageCredit": "song songroov · CC BY 3.0",
+      "imageRole": "contextual culture image",
+      "summaryZh": "位于千灯的全国重点文物保护单位塔寺建筑群。"
     },
     {
       "id": "qiandeng_hall",
@@ -599,9 +647,11 @@
       "placeId": "qiandeng_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/qiandeng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Qiandeng"
+      "image": "assets/fragments/25-qiandeng_hall.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunshan,_Suzhou,_Jiangsu,_China_-_panoramio_(117).jpg",
+      "imageCredit": "罗布泊 · CC BY 3.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "千灯一处推荐参观的文化场馆。"
     },
     {
       "id": "bacheng_town",
@@ -622,9 +672,11 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/bacheng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Bacheng"
+      "image": "assets/fragments/26-bacheng_town.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Bacheng_Water_Town.jpg",
+      "imageCredit": "Crcolas · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "阳澄湖畔的历史街区。"
     },
     {
       "id": "bajie_park",
@@ -645,9 +697,11 @@
       "placeId": "bacheng_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/bacheng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Bacheng"
+      "image": "assets/fragments/27-bajie_park.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Jiangsu_Suzhou_Kunshan_-_Zhonghengtang_-_Xiaoyuhe_river_IMG_7294.jpg",
+      "imageCredit": "Bjoertvedt · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "与当地蟹文化相关的巴城景点。"
     },
     {
       "id": "chongning_temple",
@@ -668,9 +722,11 @@
       "placeId": "bacheng_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/bacheng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Bacheng"
+      "image": "assets/fragments/28-chongning_temple.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Buddhist_temple_on_Wolf_Hill.JPG",
+      "imageCredit": "Jwzjwz2003cn at English Wikipedia · Public domain",
+      "imageRole": "specific-search result",
+      "summaryZh": "列入巴城游客目的地的寺院。"
     },
     {
       "id": "yangcheng_wetland",
@@ -691,9 +747,11 @@
       "placeId": "bacheng_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/bacheng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Bacheng"
+      "image": "assets/fragments/29-yangcheng_wetland.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunshan,_Suzhou,_Jiangsu,_China_-_panoramio_(16).jpg",
+      "imageCredit": "柳少阳 · CC BY-SA 3.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "阳澄湖畔的湿地景点。"
     },
     {
       "id": "chaodun_site",
@@ -715,9 +773,11 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/bacheng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Bacheng"
+      "image": "assets/fragments/30-chaodun_site.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Clevelandart_1917.974.jpg",
+      "imageCredit": "Wikimedia Commons contributor · CC0",
+      "imageRole": "specific-search result",
+      "summaryZh": "全国重点文物保护单位考古遗址。"
     },
     {
       "id": "dianshan_lake",
@@ -738,9 +798,11 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/tianfu.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Tianfu Ecological Garden"
+      "image": "assets/fragments/31-dianshan_lake.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Dianshan_Lake.jpg",
+      "imageCredit": "Drew Bates · CC BY 2.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "塑造淀山湖镇地域特色的重要湖泊景观。"
     },
     {
       "id": "liurudun",
@@ -762,9 +824,11 @@
       "placeId": "dianshan_lake",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/tianfu.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Tianfu Ecological Garden"
+      "image": "assets/fragments/32-liurudun.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunshan,_Suzhou,_Jiangsu,_China_-_panoramio_(10).jpg",
+      "imageCredit": "柳少阳 · CC BY-SA 3.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "淀山湖的一个地名景点，也列入受保护地名名录。"
     },
     {
       "id": "tianfu_garden",
@@ -785,9 +849,11 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/tianfu.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Tianfu Ecological Garden"
+      "image": "assets/fragments/33-tianfu_garden.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunshan,_Suzhou,_Jiangsu,_China_-_panoramio_(15).jpg",
+      "imageCredit": "柳少阳 · CC BY-SA 3.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "以古村落为中心的生态农业游览区。"
     },
     {
       "id": "zhaoling_site",
@@ -808,9 +874,11 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/forest.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Forest Park"
+      "image": "assets/fragments/34-zhaoling_site.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Altar_Purple_Mountain_Nanjing.JPG",
+      "imageCredit": "Shallowell · CC BY-SA 3.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "昆山境内的全国重点文物保护单位考古遗址。"
     },
     {
       "id": "yuyantang",
@@ -831,9 +899,11 @@
       "placeId": "zhouzhuang_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/35-yuyantang.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Jiangsu_Suzhou_Kunshan_-_Zhonghengtang_-_Xiaoyuhe_river_IMG_7295.jpg",
+      "imageCredit": "Bjoertvedt · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "全国重点文物保护单位历史厅堂。"
     },
     {
       "id": "jingyetang",
@@ -854,9 +924,11 @@
       "placeId": "zhouzhuang_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/36-jingyetang.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunshan,_Suzhou,_Jiangsu,_China_-_panoramio_(14).jpg",
+      "imageCredit": "柳少阳 · CC BY-SA 3.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "全国重点文物保护单位历史厅堂。"
     },
     {
       "id": "wufeng_flour_mill",
@@ -878,9 +950,11 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/tinglin.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Tinglin Garden"
+      "image": "assets/fragments/37-wufeng_flour_mill.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunshan,_Suzhou,_Jiangsu,_China_-_panoramio_(13).jpg",
+      "imageCredit": "柳少阳 · CC BY-SA 3.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "省级文物保护单位工业遗产。"
     },
     {
       "id": "jishan_bridge",
@@ -901,9 +975,11 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/tianfu.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Tianfu Ecological Garden"
+      "image": "assets/fragments/38-jishan_bridge.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Zhouzhuang_-_55459387527.jpg",
+      "imageCredit": "xiquinhosilva · CC BY 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "省级文物保护单位古桥。"
     },
     {
       "id": "yulong_bridge",
@@ -924,9 +1000,11 @@
       "placeId": "zhouzhuang_town",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/39-yulong_bridge.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Zhouzhuang_-_55460370976.jpg",
+      "imageCredit": "xiquinhosilva · CC BY 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "省级文物保护单位古桥。"
     },
     {
       "id": "xugongqiao_trial",
@@ -948,9 +1026,11 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/cards/tianfu.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Tianfu Ecological Garden"
+      "image": "assets/fragments/40-xugongqiao_trial.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Anonymous_-_Village_and_Temples_in_Jiangnan_-_1989.363.43_-_Metropolitan_Museum_of_Art.jpg",
+      "imageCredit": "anonymous · Public domain",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "省级文物保护单位乡村改革历史遗址。"
     },
     {
       "id": "kunshan_stone",
@@ -972,9 +1052,11 @@
       "placeId": "tinglin_garden",
       "type": "Artifacts",
       "motif": "器",
-      "image": "assets/cards/tinglin.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Tinglin Garden"
+      "image": "assets/fragments/41-kunshan_stone.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Chinese_scholar%27s_rock_-_Gongshi.jpg",
+      "imageCredit": "Christopher, Tania and Isabelle Luna · CC BY 2.0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "亭林园展示并诠释的昆山三宝之一。"
     },
     {
       "id": "ancient_tiles",
@@ -996,9 +1078,11 @@
       "placeId": "ancient_tile_museum",
       "type": "Artifacts",
       "motif": "器",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/42-ancient_tiles.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:20251004_Roof_tiles_of_Sheqi_Shan-Shaan_Guild_Hall_01.jpg",
+      "imageCredit": "Windmemories · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "通过锦溪博物馆藏品保存并诠释的建筑材料。"
     },
     {
       "id": "kiln_bricks",
@@ -1019,9 +1103,11 @@
       "placeId": "zhudian_kiln",
       "type": "Artifacts",
       "motif": "器",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/43-kiln_bricks.png",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Ancient_Chinese_Writing_on_Eastern_Han_Epitaph_Brick_of_Hard-labor_Convict.jpg",
+      "imageCredit": "Gary Todd · CC0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "用于解读当地生产历史的砖制品与窑址遗存。"
     },
     {
       "id": "opera_costume",
@@ -1042,9 +1128,11 @@
       "placeId": "opera_museum",
       "type": "Artifacts",
       "motif": "器",
-      "image": "assets/cards/kunqu.jpg",
-      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunqu_-_Dan.jpg",
-      "imageCredit": "Wikimedia Commons — Kunqu performer photograph"
+      "image": "assets/fragments/44-opera_costume.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Mongolian_Traditional_Culture_Buddhist_Artifacts_(35320969810).jpg",
+      "imageCredit": "Gary Todd from Xinzheng, China · CC0",
+      "imageRole": "specific-search result",
+      "summaryZh": "昆山戏曲百戏博物馆馆藏中的戏曲演出服饰。"
     },
     {
       "id": "opera_objects",
@@ -1065,9 +1153,11 @@
       "placeId": "opera_museum",
       "type": "Artifacts",
       "motif": "器",
-      "image": "assets/cards/kunqu.jpg",
-      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunqu_-_Dan.jpg",
-      "imageCredit": "Wikimedia Commons — Kunqu performer photograph"
+      "image": "assets/fragments/45-opera_objects.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Six_Strongmen_In_Traditional_Dress,_China.jpg",
+      "imageCredit": "William Purdom · CC BY 2.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "由四千余件捐赠品构成的博物馆馆藏的一部分。"
     },
     {
       "id": "clay_sculpture",
@@ -1088,9 +1178,11 @@
       "placeId": "clay_sculpture_hall",
       "type": "Artifacts",
       "motif": "器",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/46-clay_sculpture.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:The_Educator_%E2%80%93_Shalek_Nima,_A_Tibetan_Traditional_Clay_and_Bronze_Sculpture_Master.jpg",
+      "imageCredit": "Dawa Drolma · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "在马若特泥塑馆诠释展示的民间艺术。"
     },
     {
       "id": "paper_cut_object",
@@ -1111,9 +1203,11 @@
       "placeId": "lujia_papercut",
       "type": "Artifacts",
       "motif": "器",
-      "image": "assets/cards/qiandeng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Qiandeng"
+      "image": "assets/fragments/47-paper_cut_object.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:DogYearPaperCutting.jpg",
+      "imageCredit": "Made by Fanghong · CC BY-SA 3.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "与当地列名传统工艺相关的昆山剪纸成品。"
     },
     {
       "id": "rope_knot_object",
@@ -1134,9 +1228,11 @@
       "placeId": "kunshan_rope_knot",
       "type": "Artifacts",
       "motif": "器",
-      "image": "assets/cards/bacheng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Bacheng"
+      "image": "assets/fragments/48-rope_knot_object.png",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Chinese_knot.JPG",
+      "imageCredit": "Webridge · Public domain",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "以实用中国结结构重新组合编织而成的绳结作品。"
     },
     {
       "id": "aozao_noodles",
@@ -1158,9 +1254,11 @@
       "placeId": "tinglin_garden",
       "type": "Food",
       "motif": "味",
-      "image": "assets/cards/aozao.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/ttxw/202407/da6fe60d561c49deadce176ec2019bfb.shtml",
-      "imageCredit": "Kunshan Government — Aozao noodles"
+      "image": "assets/fragments/49-aozao_noodles.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:%E6%98%86%E5%B1%B1%E5%A5%A5%E7%81%B6%E9%A6%86%E5%A5%A5%E7%81%B6%E9%9D%A2.jpg",
+      "imageCredit": "Gisling · CC BY-SA 3.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "使用本地食材和特色汤底制作的昆山代表性面食。"
     },
     {
       "id": "flour_june_crab",
@@ -1181,9 +1279,11 @@
       "placeId": "bacheng_town",
       "type": "Food",
       "motif": "味",
-      "image": "assets/cards/june-crab.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/ttxw/202407/da6fe60d561c49deadce176ec2019bfb.shtml",
-      "imageCredit": "Kunshan Government — flour-coated June crab"
+      "image": "assets/fragments/50-flour_june_crab.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Food_%E5%A4%A7%E9%96%98%E8%9F%B9,_%E4%B8%8A%E6%B5%B7,_%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B,_%E4%B8%AD%E5%9C%8B,_Chinese_mitten_crab,_Shanghai,_People%27s_Republic_of_China,_PRC,_China_(30166190390).jpg",
+      "imageCredit": "bryan... from Taipei, Taiwan · CC BY-SA 2.0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "以巴城—阳澄湖地区鲜嫩六月黄制作的江南菜肴。"
     },
     {
       "id": "wansan_pork",
@@ -1205,9 +1305,11 @@
       "placeId": "shen_residence",
       "type": "Food",
       "motif": "味",
-      "image": "assets/cards/wansan.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/ttxw/202407/da6fe60d561c49deadce176ec2019bfb.shtml",
-      "imageCredit": "Kunshan Government — Wansan pork shank"
+      "image": "assets/fragments/51-wansan_pork.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Red_braised_pork_belly.jpg",
+      "imageCredit": "lazy fri13th · CC BY 2.0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "与周庄和沈万三叙事相关的慢火炖制猪肘。"
     },
     {
       "id": "taihe_duck",
@@ -1228,9 +1330,11 @@
       "placeId": "",
       "type": "Food",
       "motif": "味",
-      "image": "assets/cards/duck.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/ttxw/202407/da6fe60d561c49deadce176ec2019bfb.shtml",
-      "imageCredit": "Kunshan Government — Taihe braised duck"
+      "image": "assets/fragments/52-taihe_duck.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Braised_Duck%27s_head.jpg",
+      "imageCredit": "François Nguyen · CC BY 2.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "官方资料记载、可追溯至光绪年间的本地鸭肉做法。"
     },
     {
       "id": "jinhua_bacon",
@@ -1252,9 +1356,11 @@
       "placeId": "",
       "type": "Food",
       "motif": "味",
-      "image": "assets/cards/wansan.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/ttxw/202407/da6fe60d561c49deadce176ec2019bfb.shtml",
-      "imageCredit": "Kunshan Government — Wansan pork shank"
+      "image": "assets/fragments/53-jinhua_bacon.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:A_Chinese_Jinhua_Ham_on_the_Yue_Hwa_Chinese_Market.jpg",
+      "imageCredit": "Peachyeung316 · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "与金华村相关、列入昆山第五批非遗名录的腊肉传统。"
     },
     {
       "id": "hairy_crab",
@@ -1275,9 +1381,11 @@
       "placeId": "bacheng_town",
       "type": "Food",
       "motif": "味",
-      "image": "assets/cards/june-crab.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/ttxw/202407/da6fe60d561c49deadce176ec2019bfb.shtml",
-      "imageCredit": "Kunshan Government — flour-coated June crab"
+      "image": "assets/fragments/54-hairy_crab.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:%E8%8B%8F%E5%B7%9E%E8%9F%B9%E7%B2%89%E9%9D%A2.jpg",
+      "imageCredit": "Zicheng zic · CC BY 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "与阳澄湖相关的巴城知名特产。"
     },
     {
       "id": "sock_bottom_pastry",
@@ -1298,9 +1406,11 @@
       "placeId": "jinxi_town",
       "type": "Food",
       "motif": "味",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/55-sock_bottom_pastry.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Luxihe_Pastry_at_AEON_Suzhou_Yuanqu_Hudong-20240413.jpg",
+      "imageCredit": "Shwangtianyuan · CC BY-SA 4.0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "与锦溪饮食文化相关的酥脆点心。"
     },
     {
       "id": "zhengyi_qingtuan",
@@ -1321,9 +1431,11 @@
       "placeId": "bacheng_town",
       "type": "Food",
       "motif": "味",
-      "image": "assets/cards/bacheng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Bacheng"
+      "image": "assets/fragments/56-zhengyi_qingtuan.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Qingtuan_in_Tangqi_2014-04.jpg",
+      "imageCredit": "猫猫的日记本 · CC BY-SA 3.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "昆山官方美食推广资料中提及的青团。"
     },
     {
       "id": "bubble_wonton",
@@ -1344,9 +1456,11 @@
       "placeId": "dianshan_lake",
       "type": "Food",
       "motif": "味",
-      "image": "assets/cards/tianfu.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Tianfu Ecological Garden"
+      "image": "assets/fragments/57-bubble_wonton.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Wonton_Noodle_Soup_in_Fresno,_California_(%E9%9B%B2%E5%90%9E%E6%B9%AF%E9%BA%B5%E5%9C%A8%E5%8A%A0%E5%88%A9%E7%A6%8F%E5%B0%BC%E4%BA%9E%E5%B7%9E%E7%9A%84%E5%BC%97%E9%9B%B7%E6%96%AF%E8%AB%BE).jpg",
+      "imageCredit": "NeoBatfreak · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "淀山湖老街资料记载的皮薄手工馄饨。"
     },
     {
       "id": "apo_pickles",
@@ -1367,9 +1481,11 @@
       "placeId": "zhenfeng_street",
       "type": "Food",
       "motif": "味",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/58-apo_pickles.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Sayur_asin_pickles.JPG",
+      "imageCredit": "Midori · CC BY-SA 3.0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "与周庄贞丰地区相关的腌制蔬菜食品。"
     },
     {
       "id": "sealed_wine",
@@ -1390,9 +1506,11 @@
       "placeId": "zhouzhuang_town",
       "type": "Food",
       "motif": "味",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/59-sealed_wine.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Rice_wine,_aging_in_jars,_Wuzhan,_China_2006.jpg",
+      "imageCredit": "Benjamin Chan · CC BY-SA 2.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "与周庄封坛酒酿造技艺相关的米酒。"
     },
     {
       "id": "copper_goose",
@@ -1413,9 +1531,11 @@
       "placeId": "",
       "type": "Food",
       "motif": "味",
-      "image": "assets/cards/wansan.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/ttxw/202407/da6fe60d561c49deadce176ec2019bfb.shtml",
-      "imageCredit": "Kunshan Government — Wansan pork shank"
+      "image": "assets/fragments/60-copper_goose.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:%22JiaoXiangMei%22_ShaoE(Roast_goose).jpg",
+      "imageCredit": "Suginami · CC0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "用特制铜盆慢火烹制的传统老鹅菜肴。"
     },
     {
       "id": "kunqu_opera",
@@ -1437,9 +1557,11 @@
       "placeId": "opera_museum",
       "type": "Traditions",
       "motif": "艺",
-      "image": "assets/cards/kunqu.jpg",
-      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunqu_-_Dan.jpg",
-      "imageCredit": "Wikimedia Commons — Kunqu performer photograph"
+      "image": "assets/fragments/61-kunqu_opera.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunqu_opera_performance_in_Hangzhou_Grand_Theatre.jpg",
+      "imageCredit": "Yushuo Tina · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "发源于昆山地区、享有国际认可的戏曲传统。"
     },
     {
       "id": "jinxi_xuanjuan",
@@ -1461,9 +1583,11 @@
       "placeId": "jinxi_ballad_center",
       "type": "Traditions",
       "motif": "艺",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/62-jinxi_xuanjuan.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:China%27s_intangible_cultural_heritage.jpg",
+      "imageCredit": "악준동 · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "与锦溪相关的地方说唱传统。"
     },
     {
       "id": "qiandeng_tea",
@@ -1484,9 +1608,11 @@
       "placeId": "qiandeng_town",
       "type": "Traditions",
       "motif": "艺",
-      "image": "assets/cards/qiandeng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Qiandeng"
+      "image": "assets/fragments/63-qiandeng_tea.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Chinese_tea_ceremony2.jpg",
+      "imageCredit": "Ws227 · CC BY-SA 3.0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "昆山文化规划资料中提及的饮茶习俗。"
     },
     {
       "id": "kunbei_song",
@@ -1507,9 +1633,11 @@
       "placeId": "",
       "type": "Traditions",
       "motif": "艺",
-      "image": "assets/cards/forest.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Forest Park"
+      "image": "assets/fragments/64-kunbei_song.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Taizhou_Intangible_Cultural_Heritage_Exhibition_Hall-15.jpg",
+      "imageCredit": "Rowingbohe · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "与昆山北部相关的民歌传统。"
     },
     {
       "id": "lujia_dragon",
@@ -1530,9 +1658,11 @@
       "placeId": "",
       "type": "Traditions",
       "motif": "艺",
-      "image": "assets/cards/qiandeng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Qiandeng"
+      "image": "assets/fragments/65-lujia_dragon.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Dragon_dance_meets_bird_at_NYC_Lunar_New_Year_parade_(52336)e.jpg",
+      "imageCredit": "Rhododendrites · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "与陆家相关的分节龙舞传统。"
     },
     {
       "id": "huaqiao_sizhu",
@@ -1553,9 +1683,11 @@
       "placeId": "tianfu_garden",
       "type": "Traditions",
       "motif": "艺",
-      "image": "assets/cards/tianfu.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Tianfu Ecological Garden"
+      "image": "assets/fragments/66-huaqiao_sizhu.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Musical_instruments_on_display_at_the_MIM_(14165214980).jpg",
+      "imageCredit": "Frank Kovalchek from Anchorage, Alaska, USA · CC BY 2.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "与花桥相关的江南丝竹合奏传统。"
     },
     {
       "id": "xu_massage",
@@ -1576,9 +1708,11 @@
       "placeId": "",
       "type": "Traditions",
       "motif": "艺",
-      "image": "assets/cards/tinglin.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Tinglin Garden"
+      "image": "assets/fragments/67-xu_massage.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:QoQo_Traditionele_Chinese_Massage,_Schiebroek,_Rotterdam_(2020)_01.jpg",
+      "imageCredit": "Donald Trung Quoc Don (Chữ Hán: 徵國單) - Wikimedia Commons - © CC BY-SA 4.0 International . ( Want to use this image? ) Original publication 📤: -- Donald Trung 『徵國單』 ( No Fake News  · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "列入昆山市第六批非遗名录的传统医术。"
     },
     {
       "id": "zhoushi_stucco",
@@ -1599,9 +1733,11 @@
       "placeId": "",
       "type": "Traditions",
       "motif": "艺",
-      "image": "assets/cards/forest.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Forest Park"
+      "image": "assets/fragments/68-zhoushi_stucco.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Stucco_Architectural_Adornments,_Ramkhamhaeng_Museum,_Sukhothai_(46732665965).jpg",
+      "imageCredit": "Gary Todd from Xinzheng, China · Public domain",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "使用石灰浆、草纤维进行造型和着色的建筑装饰工艺。"
     },
     {
       "id": "lujia_papercut",
@@ -1622,9 +1758,11 @@
       "placeId": "",
       "type": "Traditions",
       "motif": "艺",
-      "image": "assets/cards/qiandeng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Qiandeng"
+      "image": "assets/fragments/69-lujia_papercut.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Taizhou_Intangible_Cultural_Heritage_Exhibition_Hall-1.jpg",
+      "imageCredit": "Rowingbohe · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "与刺绣纹样传统相关的细线条剪纸技艺。"
     },
     {
       "id": "kunshan_rope_knot",
@@ -1645,9 +1783,11 @@
       "placeId": "bacheng_town",
       "type": "Traditions",
       "motif": "艺",
-      "image": "assets/cards/bacheng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Bacheng"
+      "image": "assets/fragments/70-kunshan_rope_knot.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Chinese_Butterfly_Knot.jpg",
+      "imageCredit": "Ucla90024 · CC BY-SA 3.0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "将实用中国结重新组合为装饰形式的手工编结技艺。"
     },
     {
       "id": "sealed_wine_craft",
@@ -1668,9 +1808,11 @@
       "placeId": "zhouzhuang_town",
       "type": "Traditions",
       "motif": "艺",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/71-sealed_wine_craft.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Rice_steaming_for_Jingpho_sweet_rice_wine_making,_Mangshi,_China.jpg",
+      "imageCredit": "Janinga Chang · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "使用当地粮食和水、并采用靠墙静置工艺的周庄米酒酿造技艺。"
     },
     {
       "id": "spring_ox",
@@ -1691,9 +1833,11 @@
       "placeId": "zhouzhuang_town",
       "type": "Traditions",
       "motif": "艺",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/72-spring_ox.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:%E3%80%8A%E8%8A%82%E5%BA%86%E4%B8%AD%E7%9A%84%E9%9D%9E%E9%81%97%E3%80%8B%E5%86%85%E9%83%A8_%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA%E9%9D%9E%E7%89%A9%E8%B4%A8%E6%96%87%E5%8C%96%E9%81%97%E4%BA%A7%E9%A6%86_%27Intangible_cultural_heritage_in_festivals%27_Xinjiang_Intangible_Cultural_Heritage_Museum.jpg",
+      "imageCredit": "HaziiDozen · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "列入昆山市第六批非遗名录的周庄民俗。"
     },
     {
       "id": "round_woodcraft",
@@ -1714,9 +1858,11 @@
       "placeId": "jinxi_town",
       "type": "Traditions",
       "motif": "艺",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/73-round_woodcraft.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Bai_wood_carving_-_Yunnan_Provincial_Museum-_DSC02125.JPG",
+      "imageCredit": "Daderot · Public domain",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "用于圆形木构和器物制作的锦溪木作传统。"
     },
     {
       "id": "longxing_qigong",
@@ -1737,9 +1883,11 @@
       "placeId": "",
       "type": "Traditions",
       "motif": "艺",
-      "image": "assets/cards/forest.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Forest Park"
+      "image": "assets/fragments/74-longxing_qigong.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Qigong_taiji_meditation.jpg",
+      "imageCredit": "Anonymous Unknown author · Public domain",
+      "imageRole": "specific-search result",
+      "summaryZh": "列入昆山市第六批非遗名录的传统健身功法。"
     },
     {
       "id": "shen_wansan_story",
@@ -1761,9 +1909,11 @@
       "placeId": "shen_residence",
       "type": "Stories",
       "motif": "故",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/75-shen_wansan_story.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Zhouzhuang_1.jpg",
+      "imageCredit": "livepine · CC BY 2.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "连接沈万三、其故居与周庄饮食文化的地方叙事。"
     },
     {
       "id": "concubine_story",
@@ -1784,9 +1934,11 @@
       "placeId": "concubine_tomb",
       "type": "Stories",
       "motif": "故",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/76-concubine_story.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Jinxi-townkunshan-3_21090113279_o.jpg",
+      "imageCredit": "唐戈 · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "将锦溪水乡景观与一位皇帝及其妃子联系起来的当地叙事。"
     },
     {
       "id": "gu_yanwu_story",
@@ -1808,9 +1960,11 @@
       "placeId": "gu_yanwu_residence",
       "type": "Stories",
       "motif": "故",
-      "image": "assets/cards/qiandeng.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Qiandeng"
+      "image": "assets/fragments/77-gu_yanwu_story.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Gu_yanwu.jpg",
+      "imageCredit": "葉衍蘭輯，黃小泉摹繪， · Public domain",
+      "imageRole": "specific-search result",
+      "summaryZh": "连接学者顾炎武、其千灯出生地与故居的史实记忆。"
     },
     {
       "id": "gu_jian_story",
@@ -1831,9 +1985,11 @@
       "placeId": "gu_jian_memorial",
       "type": "Stories",
       "motif": "故",
-      "image": "assets/cards/kunqu.jpg",
-      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunqu_-_Dan.jpg",
-      "imageCredit": "Wikimedia Commons — Kunqu performer photograph"
+      "image": "assets/fragments/78-gu_jian_story.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:%E6%98%86%E6%9B%B2%E5%88%9B%E5%A7%8B%E4%BA%BA%E9%A1%BE%E5%9D%9A%E5%83%8F.jpg",
+      "imageCredit": "Gisling · CC BY-SA 3.0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "千灯的相关阐释将顾坚视为昆曲源流中的重要人物。"
     },
     {
       "id": "jinxi_name_story",
@@ -1854,9 +2010,11 @@
       "placeId": "jinxi_town",
       "type": "Stories",
       "motif": "故",
-      "image": "assets/cards/jinxi.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Jinxi"
+      "image": "assets/fragments/79-jinxi_name_story.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Jiangsu_Suzhou_Kunshan_-_Bingxi_Yizu_Community_IMG_7311.jpg",
+      "imageCredit": "Bjoertvedt · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "官方旅游资料将“锦溪”之名与桃花夹岸河面的光影联系起来。"
     },
     {
       "id": "zhouzhuang_water_story",
@@ -1877,9 +2035,11 @@
       "placeId": "zhouzhuang_town",
       "type": "Stories",
       "motif": "故",
-      "image": "assets/cards/zhouzhuang.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Zhouzhuang"
+      "image": "assets/fragments/80-zhouzhuang_water_story.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Boat_on_Canal_(5695226817).jpg",
+      "imageCredit": "kevinmcgill from Den Bosch, Netherlands · CC BY-SA 2.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "关于水道、古桥与临水民居的水乡空间叙事。"
     },
     {
       "id": "three_treasures_story",
@@ -1901,9 +2061,11 @@
       "placeId": "tinglin_garden",
       "type": "Stories",
       "motif": "故",
-      "image": "assets/cards/tinglin.jpg",
-      "imageSource": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "imageCredit": "Kunshan Government tourism page — Tinglin Garden"
+      "image": "assets/fragments/81-three_treasures_story.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Jiangsu_Suzhou_Kunshan_-_Rongtingcun_IMG_7275_S5_changjia_expressway.jpg",
+      "imageCredit": "Bjoertvedt · CC BY-SA 4.0",
+      "imageRole": "specific-search result",
+      "summaryZh": "亭林园将昆石、琼花和并蒂莲展示为昆山三宝。"
     },
     {
       "id": "opera_city_story",
@@ -1924,9 +2086,11 @@
       "placeId": "opera_museum",
       "type": "Stories",
       "motif": "故",
-      "image": "assets/cards/kunqu.jpg",
-      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunqu_-_Dan.jpg",
-      "imageCredit": "Wikimedia Commons — Kunqu performer photograph"
+      "image": "assets/fragments/82-opera_city_story.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Kunqu_performance_in_Hangzhou_Grand_Theatre.jpg",
+      "imageCredit": "Yushuo Tina · CC BY-SA 4.0",
+      "imageRole": "specific or close contextual match",
+      "summaryZh": "昆山戏曲百戏博物馆将昆山呈现为数百种中国戏曲剧种的汇聚地。"
     }
   ],
   "relations": [

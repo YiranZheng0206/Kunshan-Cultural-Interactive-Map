@@ -3,37 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Kunshan Cultural Map: discover culture, save places, and plan a route." />
+    <meta name="description" content="Kunshan Cultural Map — explore places, food, traditions, artifacts and stories, then create a cultural route." />
     <title>Kunshan Cultural Map</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%231c4d57' d='M8 11h48v42H8z'/%3E%3Cpath fill='%23f3b841' d='M16 21h32v5H16zm0 10h24v5H16zm0 10h32v5H16z'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="landing.css" />
   </head>
   <body>
-    <div class="app-shell">
-      <aside class="sidebar" id="explorePanel" aria-label="Cultural discovery">
-        <header class="brand"><span class="brand-mark">昆</span><div><strong id="brandTitle">Kunshan Cultural Map</strong><small id="brandSubtitle">Explore culture, place by place</small></div><div class="language-toggle" role="group" aria-label="Language"><button type="button" data-language="en">EN</button><button type="button" data-language="zh">中文</button></div></header>
-        <label class="search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search culture, places, or stories" autocomplete="off" /></label>
-        <div class="filter-heading"><span id="categoryHeading">Categories</span><button id="clearFilters" class="text-button">Clear</button></div>
-        <nav id="categoryFilters" class="filters" aria-label="Cultural category filters"></nav>
-        <div class="results-meta"><strong id="resultCount">0</strong><span id="resultLabel">cultural discoveries</span></div>
-        <section id="itemList" class="item-list" aria-label="文化发现列表"></section>
-        <button id="surpriseButton" class="surprise" type="button"><span>✦</span> Surprise me</button>
-      </aside>
+    <main class="landing-shell">
+      <nav class="landing-nav">
+        <a class="landing-brand" href="index.html" aria-label="Kunshan Cultural Map home"><span>昆</span><b><i data-en="Kunshan" data-zh="昆山">Kunshan</i><small data-en="Cultural Map" data-zh="文化地图">Cultural Map</small></b></a>
+        <div class="landing-language" role="group" aria-label="Language"><button data-language="en">EN</button><button data-language="zh">中文</button></div>
+      </nav>
 
-      <main class="map-area">
-        <div class="map-toolbar"><span id="mapLabel" class="map-label"><i></i> Kunshan · Cultural discovery</span><div class="zoom-controls"><button id="zoomIn" aria-label="Zoom in">+</button><button id="zoomOut" aria-label="Zoom out">−</button><button id="resetMap" aria-label="Reset map">⌖</button></div></div>
-        <div class="view-switch" role="group" aria-label="Visualization view"><button id="mapViewButton" type="button" aria-pressed="true">Map</button><button id="patternsViewButton" type="button" aria-pressed="false">Patterns</button></div>
-        <section id="patternsPanel" class="patterns-panel" hidden aria-label="Cultural patterns"><div class="patterns-intro"><h2 id="patternsTitle">Cultural patterns</h2><p id="patternsIntro">Compare categories and explore sourced cultural connections.</p></div><div class="patterns-grid"><div class="chart-card"><h3 id="chartTitle">Discoveries by category</h3><p id="chartHint">Select a bar to filter the map and list.</p><div id="categoryChart" class="category-chart"></div></div><div class="chart-card network-card"><h3 id="networkTitle">Cultural connections</h3><p id="networkHint">Select a node to see its story. Links come from the source dataset, not travel routes.</p><svg id="networkGraph" viewBox="0 0 600 390" role="img" aria-label="Network of related cultural discoveries"></svg><div id="networkLegend" class="network-legend"></div></div></div></section>
-        <div id="mapViewport" class="map-viewport" aria-label="Interactive Kunshan map. Drag and zoom to explore." tabindex="0"></div>
-        <div id="mapHint" class="map-hint">Drag to explore · Scroll or use controls to zoom</div>
-      </main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" data-en="PLACES · CRAFT · FOOD · LIVING HERITAGE" data-zh="地点 · 手艺 · 食物 · 活态传统">PLACES · CRAFT · FOOD · LIVING HERITAGE</p>
+          <h1><span data-en="Read Kunshan" data-zh="读懂昆山">Read Kunshan</span><em data-en="through culture." data-zh="从一处文化开始。">through culture.</em></h1>
+          <p class="hero-intro" data-en="Discover 82 evidence-linked cultural records across Kunshan. Follow places, objects, flavours, traditions and stories — then turn your discoveries into a route." data-zh="探索昆山 82 条有来源的文化记录。从地点、器物、味道、传统与故事出发，再把你的发现变成一条文化路线。">Discover 82 evidence-linked cultural records across Kunshan. Follow places, objects, flavours, traditions and stories — then turn your discoveries into a route.</p>
+          <div class="hero-actions">
+            <a id="enterMap" class="primary-action" href="map.html?lang=en"><span data-en="Enter the cultural map" data-zh="进入文化地图">Enter the cultural map</span><b>→</b></a>
+            <a class="text-action" href="#tutorial" data-en="See how it works" data-zh="查看使用方法">See how it works</a>
+          </div>
+          <div class="dataset-note"><strong>82</strong><span data-en="cultural records" data-zh="条文化记录">cultural records</span><i></i><strong>67</strong><span data-en="sourced relationships" data-zh="条有来源的关联">sourced relationships</span></div>
+        </div>
 
-      <aside id="detailPanel" class="detail-panel" aria-live="polite"></aside>
-      <section id="routePanel" class="route-panel" aria-label="Cultural route planning"></section>
-    </div>
-    <script src="data.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="app.js?v=dataset-2"></script>
+        <div class="hero-visual" aria-label="Cultural scenes from Kunshan">
+          <figure class="photo photo-main"><img src="assets/fragments/04-zhouzhuang_town.jpg" alt="Zhouzhuang water town"><figcaption data-en="Water-town landscapes" data-zh="水乡景观">Water-town landscapes</figcaption></figure>
+          <figure class="photo photo-top"><img src="assets/fragments/61-kunqu_opera.jpg" alt="Kunqu opera"><figcaption data-en="Living traditions" data-zh="活态传统">Living traditions</figcaption></figure>
+          <figure class="photo photo-bottom"><img src="assets/fragments/49-aozao_noodles.jpg" alt="Aozao noodles"><figcaption data-en="Local flavours" data-zh="地方味道">Local flavours</figcaption></figure>
+          <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+          <div class="map-pin pin-one"><span></span></div><div class="map-pin pin-two"><span></span></div>
+        </div>
+      </section>
+
+      <section id="tutorial" class="tutorial">
+        <div class="section-heading"><p data-en="QUICK TUTORIAL" data-zh="简单使用说明">QUICK TUTORIAL</p><h2 data-en="Three steps to build a cultural route" data-zh="三步建立你的文化路线">Three steps to build a cultural route</h2></div>
+        <div class="tutorial-grid">
+          <article><span class="step-number">01</span><div class="step-icon browse-icon"><i></i><i></i><i></i></div><h3 data-en="Browse the fragments" data-zh="浏览文化项目">Browse the fragments</h3><p data-en="Filter Places, Artifacts, Food, Traditions and Stories. Select any card or photo marker." data-zh="按地点、器物、食物、传统和故事筛选；点击左侧卡片或地图图片标记。">Filter Places, Artifacts, Food, Traditions and Stories. Select any card or photo marker.</p></article>
+          <article><span class="step-number">02</span><div class="step-icon pattern-icon"><i></i><i></i><i></i><i></i></div><h3 data-en="Read the cultural context" data-zh="理解文化背景">Read the cultural context</h3><p data-en="Open Patterns to compare categories and explore evidence-linked cultural relationships." data-zh="打开“文化关联”，比较类别分布并探索有资料来源的文化关系。">Open Patterns to compare categories and explore evidence-linked cultural relationships.</p></article>
+          <article><span class="step-number">03</span><div class="step-icon route-icon"><i></i><i></i><i></i></div><h3 data-en="Create a route" data-zh="生成探索路线">Create a route</h3><p data-en="Add two or more records, then compare the fastest, scenic and convenient route options." data-zh="加入两个以上文化项目，再比较最快、最适合观景和交通最方便的路线。">Add two or more records, then compare the fastest, scenic and convenient route options.</p></article>
+        </div>
+        <a id="tutorialEnterMap" class="secondary-action" href="map.html?lang=en"><span data-en="Start exploring Kunshan" data-zh="开始探索昆山">Start exploring Kunshan</span><b>→</b></a>
+      </section>
+
+      <footer><span class="footer-seal">昆山</span><p data-en="A bilingual interactive visualization for cultural discovery and route exploration." data-zh="用于文化发现与路线探索的双语交互可视化。">A bilingual interactive visualization for cultural discovery and route exploration.</p><a href="map.html?lang=en" data-enter-link data-en="Open map" data-zh="打开地图">Open map</a></footer>
+    </main>
+    <script>
+      (() => {
+        const saved = (() => { try { return localStorage.getItem('kunshan-map-language'); } catch { return null; } })();
+        const state = { language: saved === 'zh' ? 'zh' : 'en' };
+        function setLanguage(language) {
+          state.language = language;
+          try { localStorage.setItem('kunshan-map-language', language); } catch {}
+          document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+          document.querySelectorAll('[data-en][data-zh]').forEach(node => { node.textContent = node.dataset[language]; });
+          document.querySelectorAll('[data-language]').forEach(button => { button.classList.toggle('active', button.dataset.language === language); button.setAttribute('aria-pressed', String(button.dataset.language === language)); });
+          document.querySelectorAll('#enterMap,#tutorialEnterMap,[data-enter-link]').forEach(link => { link.href = `map.html?lang=${language}`; });
+        }
+        document.querySelector('.landing-language').onclick = event => { const button = event.target.closest('[data-language]'); if (button) setLanguage(button.dataset.language); };
+        setLanguage(state.language);
+      })();
+    </script>
   </body>
 </html>

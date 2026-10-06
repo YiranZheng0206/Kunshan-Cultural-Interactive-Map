@@ -1,86 +1,186 @@
 (() => {
   const data = window.KUNSHAN_DATA;
-  const items = data.fragments, relations = data.relations;
+  const items = data.fragments;
+  const relations = data.relations;
   const byId = new Map(items.map(item => [item.id, item]));
   const sources = new Map(data.sources.map(source => [source.id, source]));
   const categories = [
-    {id:'Places', color:'#b85c3f', icon:'⌂', emoji:'🏮'},
-    {id:'Artifacts', color:'#395f9a', icon:'◇', emoji:'🏺'},
-    {id:'Food', color:'#d87932', icon:'◒', emoji:'🍜'},
-    {id:'Traditions', color:'#6e5aa4', icon:'◎', emoji:'🎭'},
-    {id:'Stories', color:'#a26842', icon:'✦', emoji:'📜'}
+    { id: 'Places', color: '#b85c3f', icon: '⌂' },
+    { id: 'Artifacts', color: '#395f9a', icon: '◇' },
+    { id: 'Food', color: '#d87932', icon: '◒' },
+    { id: 'Traditions', color: '#6e5aa4', icon: '◎' },
+    { id: 'Stories', color: '#a26842', icon: '✦' }
   ];
-  const categoryById = new Map(categories.map(c => [c.id,c]));
+  const categoryById = new Map(categories.map(category => [category.id, category]));
+
   const copy = {
-    en: {title:'Kunshan Cultural Map',subtitle:'Explore culture, place by place',search:'Search names, descriptions, or towns',categories:'Categories',clear:'Clear',discoveries:'cultural records',surprise:'Surprise me',map:'Map',patterns:'Patterns',mapLabel:'Kunshan · Cultural discovery',mapHint:'Drag to explore · Scroll or use controls to zoom',empty:'No matching records. Clear filters or try another search.',detailTitle:'Start exploring from the map',detailEmpty:'Select a record to read its source, location precision, and cultural connections.',practical:'Location and evidence',save:'＋ Add to route',saved:'✓ Added to route',unroutable:'Area anchor · route unavailable',route:'My cultural route',savedPlaces:n=>`${n} saved specific site${n===1?'':'s'}`,routeEmpty:'Add specific-site records to create a schematic route.',generate:'Generate schematic route',routeSummary:n=>`${n} stops · straight-line sequence, not navigation`,remove:'Remove',source:'Sources',precision:'Coordinate precision',related:'Related records',noRelated:'No documented link in this dataset',view:'View source',mapAria:'Interactive Kunshan map',patternsTitle:'Cultural patterns',patternsIntro:'82 curated records and 67 evidence-linked relations. This is a sample, not a complete census.',chartTitle:'Records by category',chartHint:'Click a bar to isolate a category; click it again to show all.',networkTitle:'Evidence-linked cultural network',networkHint:'Showing the most connected records. Select any record to see its immediate links. Lines are cultural relations, not roads.',networkAria:'Network of sourced cultural relations',networkCount:(nodes,edges)=>`${nodes} nodes · ${edges} visible links of ${relations.length} total`,categoriesNames:{Places:'Places',Artifacts:'Artifacts',Food:'Food',Traditions:'Traditions',Stories:'Stories'},precisionNames:{'specific-site':'Specific site','town-area anchor':'Town area anchor','town anchor':'Town anchor','associated-site anchor':'Associated site anchor','district anchor':'District anchor','city anchor':'City anchor','regional food anchor':'Regional food anchor','landscape anchor':'Landscape anchor','village-area anchor':'Village area anchor','city cultural anchor':'City cultural anchor','regional anchor':'Regional anchor'}},
-    zh: {title:'昆山文化地图',subtitle:'一处一处，探索昆山文化',search:'搜索名称、英文介绍或乡镇',categories:'文化类别',clear:'清除',discoveries:'条文化记录',surprise:'随机发现一处文化',map:'地图',patterns:'文化关联',mapLabel:'昆山市 · 文化探索',mapHint:'拖动地图以探索 · 滚轮或按钮缩放',empty:'没有匹配项，请清除筛选或更换关键词。',detailTitle:'从地图开始探索',detailEmpty:'点击记录查看来源、坐标精度和文化关联。',practical:'位置与证据',save:'＋ 加入路线',saved:'✓ 已加入路线',unroutable:'区域锚点 · 不支持路线',route:'我的文化路线',savedPlaces:n=>`${n} 个精确地点`,routeEmpty:'选择标为“精确地点”的记录，可生成示意路线。',generate:'生成示意路线',routeSummary:n=>`${n} 站 · 直线连接，不能用于导航`,remove:'移除',source:'资料来源',precision:'坐标精度',related:'相关记录',noRelated:'数据集中暂无关联',view:'查看来源',mapAria:'昆山交互地图',patternsTitle:'昆山文化关联',patternsIntro:'82 条精选记录和 67 条有来源的关联；不是昆山文化资源的完整名录。',chartTitle:'各类别记录数量',chartHint:'点击条形单独筛选，再次点击恢复全部。',networkTitle:'有来源的文化关联网络',networkHint:'默认显示关联最多的记录。选择任意记录可查看直接关联；连线不代表道路。',networkAria:'有来源的昆山文化关联网络',networkCount:(nodes,edges)=>`当前 ${nodes} 个节点、${edges} 条连线；全部 ${relations.length} 条`,categoriesNames:{Places:'文化地点',Artifacts:'文化物件',Food:'地方美食',Traditions:'传统技艺',Stories:'文化故事'},precisionNames:{'specific-site':'精确地点','town-area anchor':'乡镇范围锚点','town anchor':'乡镇锚点','associated-site anchor':'关联地点锚点','district anchor':'区级锚点','city anchor':'市级锚点','regional food anchor':'区域美食锚点','landscape anchor':'景观锚点','village-area anchor':'村落范围锚点','city cultural anchor':'市级文化锚点','regional anchor':'区域锚点'}}
+    en: {
+      title: 'Kunshan Cultural Map', subtitle: 'Explore culture, place by place',
+      search: 'Search names, introductions, or towns', categories: 'Categories', clear: 'Clear', discoveries: 'cultural records', surprise: 'Surprise me', map: 'Map', patterns: 'Patterns',
+      mapLabel: 'Kunshan · Cultural discovery', mapHint: 'Select a card or photo marker to explore', empty: 'No matching records. Clear filters or try another search.',
+      detailTitle: 'Start exploring from the map', detailEmpty: 'Select a card or photo marker to read its introduction, evidence, and cultural context.',
+      practical: 'Location and evidence', source: 'Sources', imageCredit: 'Image credit', precision: 'Coordinate precision', related: 'Cultural context', noRelated: 'No documented relation is recorded for this item.',
+      save: '＋ Add to route', saved: '✓ Added to route', route: 'My cultural route', savedPlaces: count => `${count} saved stop${count === 1 ? '' : 's'}`,
+      routeEmpty: 'Add at least two cultural records to compare route options.', generate: 'Generate route options', remove: 'Remove',
+      routeModes: { fastest: 'Fastest', scenic: 'Best for scenery', convenient: 'Most convenient' },
+      routeDescriptions: { fastest: 'Minimizes straight-line travel between selected stops.', scenic: 'Prioritizes waterside places, stories, and living traditions.', convenient: 'Groups nearby stops and reduces changes between towns.' },
+      routeSummary: (count, km, minutes) => `${count} stops · about ${km} km · heuristic ${minutes} min`, routeCaveat: 'Prototype estimate only — not live navigation, traffic, or timetable data.',
+      transport: { walk: 'Walk', cycle: 'Bicycle', transit: 'Public transport', taxi: 'Taxi / car' }, viewSource: 'View source', mapAria: 'Interactive Kunshan map',
+      patternsTitle: 'Cultural patterns', patternsIntro: 'Two linked visualization idioms reveal both dataset composition and sourced cultural relationships.',
+      chartTitle: 'Idiom 1 · Category distribution', chartHint: 'Compare the five categories. Select a bar to filter every view.',
+      networkTitle: 'Idiom 2 · Cultural relationship network', networkHint: 'Select a node to reveal its direct evidence-linked neighborhood. Lines are cultural relations, not roads.',
+      networkAria: 'Network of sourced cultural relationships', networkCount: (nodes, edges) => `${nodes} records · ${edges} visible links of ${relations.length} total`,
+      categoriesNames: { Places: 'Places', Artifacts: 'Artifacts', Food: 'Food', Traditions: 'Traditions', Stories: 'Stories' },
+      precisionNames: { 'specific-site': 'Specific site', 'town-area anchor': 'Town area anchor', 'town anchor': 'Town anchor', 'associated-site anchor': 'Associated site anchor', 'district anchor': 'District anchor', 'city anchor': 'City anchor', 'regional food anchor': 'Regional food anchor', 'landscape anchor': 'Landscape anchor', 'village-area anchor': 'Village area anchor', 'city cultural anchor': 'City cultural anchor', 'regional anchor': 'Regional anchor' }
+    },
+    zh: {
+      title: '昆山文化地图', subtitle: '一处一处，探索昆山文化', search: '搜索名称、介绍或乡镇', categories: '文化类别', clear: '清除', discoveries: '条文化记录', surprise: '随机发现一处文化', map: '地图', patterns: '文化关联',
+      mapLabel: '昆山市 · 文化探索', mapHint: '点击卡片或图片标记开始探索', empty: '没有匹配项，请清除筛选或更换关键词。',
+      detailTitle: '从地图开始探索', detailEmpty: '点击左侧卡片或地图图片标记，查看介绍、证据和文化背景。',
+      practical: '位置与证据', source: '资料来源', imageCredit: '图片来源', precision: '坐标精度', related: '文化背景', noRelated: '数据集中暂未记录此项目的文化关联。',
+      save: '＋ 加入路线', saved: '✓ 已加入路线', route: '我的文化路线', savedPlaces: count => `${count} 个已选站点`,
+      routeEmpty: '至少加入两个文化项目，即可比较不同路线。', generate: '生成路线方案', remove: '移除',
+      routeModes: { fastest: '最快路线', scenic: '最适合观景', convenient: '交通最方便' },
+      routeDescriptions: { fastest: '尽量缩短已选站点之间的直线移动距离。', scenic: '优先串联水乡景点、故事和活态传统。', convenient: '优先按相邻区域分组，减少跨乡镇换乘。' },
+      routeSummary: (count, km, minutes) => `${count} 站 · 约 ${km} 公里 · 启发式估算 ${minutes} 分钟`, routeCaveat: '课程原型估算，不代表实时导航、路况或公交时刻。',
+      transport: { walk: '步行', cycle: '骑行', transit: '公共交通', taxi: '出租车 / 驾车' }, viewSource: '查看来源', mapAria: '昆山交互地图',
+      patternsTitle: '昆山文化模式', patternsIntro: '两个相互联动的可视化 idiom：同时观察数据类别分布和有来源的文化关系。',
+      chartTitle: 'Idiom 1 · 类别分布', chartHint: '比较五个文化类别；点击条形可同步筛选地图、列表和网络。',
+      networkTitle: 'Idiom 2 · 文化关系网络', networkHint: '点击节点查看有证据支持的直接关联；连线表示文化关系，不表示道路。',
+      networkAria: '有来源的昆山文化关系网络', networkCount: (nodes, edges) => `当前 ${nodes} 条记录、${edges} 条连线；全部 ${relations.length} 条`,
+      categoriesNames: { Places: '文化地点', Artifacts: '文化物件', Food: '地方美食', Traditions: '传统技艺', Stories: '文化故事' },
+      precisionNames: { 'specific-site': '精确地点', 'town-area anchor': '乡镇范围锚点', 'town anchor': '乡镇锚点', 'associated-site anchor': '关联地点锚点', 'district anchor': '区级锚点', 'city anchor': '市级锚点', 'regional food anchor': '区域美食锚点', 'landscape anchor': '景观锚点', 'village-area anchor': '村落范围锚点', 'city cultural anchor': '市级文化锚点', 'regional anchor': '区域锚点' }
+    }
+  };
+  const relationLabelsZh = {
+    'Material culture and place': '物质文化与地点', 'Local food and place': '地方食物与地点', 'Living tradition and place': '活态传统与地点', 'Place and documented memory': '地点与历史记忆',
+    'Origins and performance tradition': '源流与表演传统', 'From kiln production to museum collection': '从窑业生产到博物馆收藏', 'Food product and brewing practice': '食品与酿造技艺',
+    'Food and transmitted story': '食物与流传故事', 'Seasonal crab food culture': '时令蟹食文化', 'Two narratives of Jinxi': '锦溪的两种地方叙事',
+    'Object and civic cultural story': '文化物件与城市故事', 'Collection and museum narrative': '馆藏与博物馆叙事', 'Two distinct Kunshan cultural anchors': '两种不同的昆山文化线索'
   };
   const $ = id => document.getElementById(id);
-  const stored = (() => {try{return localStorage.getItem('kunshan-map-language')}catch{return null}})();
-  const state = {language:stored==='zh'?'zh':'en',active:new Set(categories.map(c=>c.id)),query:'',selected:null,saved:[],route:[],view:'map'};
+  const queryLanguage = new URLSearchParams(location.search).get('lang');
+  const storedLanguage = (() => { try { return localStorage.getItem('kunshan-map-language'); } catch { return null; } })();
+  const state = { language: queryLanguage === 'zh' || queryLanguage === 'en' ? queryLanguage : storedLanguage === 'zh' ? 'zh' : 'en', query: '', active: new Set(categories.map(category => category.id)), selected: null, saved: [], routes: {}, routeMode: 'fastest', view: 'map' };
   const t = () => copy[state.language];
-  const name = item => state.language==='zh'?item.nameZh:item.name;
-  const summaryZh = {
-    tinglin_garden:'昆山市中心的园林，以顾炎武命名，并与昆山三宝相关联。',forest_park:'位于昆山市中心西北的大型城市湿地与公共公园。',opera_museum:'展示中国戏曲历史与丰富剧种的博物馆。',zhouzhuang_town:'拥有水道、桥梁和临水民居的历史水乡。',twin_bridges:'周庄水道网络中的一组双桥地标。',zhang_hall:'周庄一处推荐参观的历史民居。',shen_hall:'与沈氏家族相关的周庄历史民居。',zhenfeng_street:'周庄一条以贞丰命名的文化街。',shen_residence:'位于周庄、介绍沈万三生平的参观地点。',chengxu_temple:'列入周庄推荐景点的道教宫观。',old_opera_stage:'周庄历史区域内的演出场所。',
-    jinxi_town:'被湖泊环绕、以民间博物馆闻名的水乡。',ancient_tile_museum:'诠释古代砖、瓦与窑业文化的博物馆。',clay_sculpture_hall:'专门展示泥塑的民间博物馆场所。',jinxi_ballad_center:'与锦溪宣卷说唱文化相关的场所。',lianchi_temple:'列入锦溪推荐景点的寺院。',concubine_tomb:'位于水中的纪念遗址，也是锦溪知名叙事的核心地点。',wenchang_pavilion:'锦溪历史区域内的一座楼阁。',zhudian_kiln:'由旧砖窑改建、展示当地制砖历史的博物馆。',
-    qiandeng_town:'与顾炎武、顾坚、昆曲及长石板街相关的历史古镇。',stone_street:'一条长约1500米、两旁分布历史民居的街道。',gu_yanwu_residence:'与学者顾炎武相关的全国重点文物保护单位故居。',gu_jian_memorial:'介绍顾坚与昆曲源流的纪念场馆。',qinfeng_tower:'位于千灯的全国重点文物保护单位塔寺建筑群。',qiandeng_hall:'千灯一处推荐参观的文化场馆。',bacheng_town:'阳澄湖畔的历史街区。',bajie_park:'与当地蟹文化相关的巴城景点。',chongning_temple:'列入巴城游客目的地的寺院。',yangcheng_wetland:'阳澄湖畔的湿地景点。',chaodun_site:'全国重点文物保护单位考古遗址。',
-    dianshan_lake:'塑造淀山湖镇地域特色的重要湖泊景观。',liurudun:'淀山湖的一个地名景点，也列入受保护地名名录。',tianfu_garden:'以古村落为中心的生态农业游览区。',zhaoling_site:'昆山境内的全国重点文物保护单位考古遗址。',yuyantang:'全国重点文物保护单位历史厅堂。',jingyetang:'全国重点文物保护单位历史厅堂。',wufeng_flour_mill:'省级文物保护单位工业遗产。',jishan_bridge:'省级文物保护单位古桥。',yulong_bridge:'省级文物保护单位古桥。',xugongqiao_trial:'省级文物保护单位乡村改革历史遗址。',
-    kunshan_stone:'亭林园展示并诠释的昆山三宝之一。',ancient_tiles:'通过锦溪博物馆藏品保存并诠释的建筑材料。',kiln_bricks:'用于解读当地生产历史的砖制品与窑址遗存。',opera_costume:'昆山戏曲百戏博物馆馆藏中的戏曲演出服饰。',opera_objects:'由四千余件捐赠品构成的博物馆馆藏的一部分。',clay_sculpture:'在马若特泥塑馆诠释展示的民间艺术。',paper_cut_object:'与当地列名传统工艺相关的昆山剪纸成品。',rope_knot_object:'以实用中国结结构重新组合编织而成的绳结作品。',
-    aozao_noodles:'使用本地食材和特色汤底制作的昆山代表性面食。',flour_june_crab:'以巴城—阳澄湖地区鲜嫩六月黄制作的江南菜肴。',wansan_pork:'与周庄和沈万三叙事相关的慢火炖制猪肘。',taihe_duck:'官方资料记载、可追溯至光绪年间的本地鸭肉做法。',jinhua_bacon:'与金华村相关、列入昆山第五批非遗名录的腊肉传统。',hairy_crab:'与阳澄湖相关的巴城知名特产。',sock_bottom_pastry:'与锦溪饮食文化相关的酥脆点心。',zhengyi_qingtuan:'昆山官方美食推广资料中提及的青团。',bubble_wonton:'淀山湖老街资料记载的皮薄手工馄饨。',apo_pickles:'与周庄贞丰地区相关的腌制蔬菜食品。',sealed_wine:'与周庄封坛酒酿造技艺相关的米酒。',copper_goose:'用特制铜盆慢火烹制的传统老鹅菜肴。',
-    kunqu_opera:'发源于昆山地区、享有国际认可的戏曲传统。',jinxi_xuanjuan:'与锦溪相关的地方说唱传统。',qiandeng_tea:'昆山文化规划资料中提及的饮茶习俗。',kunbei_song:'与昆山北部相关的民歌传统。',lujia_dragon:'与陆家相关的分节龙舞传统。',huaqiao_sizhu:'与花桥相关的江南丝竹合奏传统。',xu_massage:'列入昆山市第六批非遗名录的传统医术。',zhoushi_stucco:'使用石灰浆、草纤维进行造型和着色的建筑装饰工艺。',lujia_papercut:'与刺绣纹样传统相关的细线条剪纸技艺。',kunshan_rope_knot:'将实用中国结重新组合为装饰形式的手工编结技艺。',sealed_wine_craft:'使用当地粮食和水、并采用靠墙静置工艺的周庄米酒酿造技艺。',spring_ox:'列入昆山市第六批非遗名录的周庄民俗。',round_woodcraft:'用于圆形木构和器物制作的锦溪木作传统。',longxing_qigong:'列入昆山市第六批非遗名录的传统健身功法。',
-    shen_wansan_story:'连接沈万三、其故居与周庄饮食文化的地方叙事。',concubine_story:'将锦溪水乡景观与一位皇帝及其妃子联系起来的当地叙事。',gu_yanwu_story:'连接学者顾炎武、其千灯出生地与故居的史实记忆。',gu_jian_story:'千灯的相关阐释将顾坚视为昆曲源流中的重要人物。',jinxi_name_story:'官方旅游资料将“锦溪”之名与桃花夹岸河面的光影联系起来。',zhouzhuang_water_story:'关于水道、古桥与临水民居的水乡空间叙事。',three_treasures_story:'亭林园将昆石、琼花和并蒂莲展示为昆山三宝。',opera_city_story:'昆山戏曲百戏博物馆将昆山呈现为数百种中国戏曲剧种的汇聚地。'
-  };
-  const summary = item => state.language==='zh' ? summaryZh[item.id] : item.summary;
-  const escapeHtml = value => String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const name = item => state.language === 'zh' ? item.nameZh : item.name;
+  const summary = item => state.language === 'zh' ? item.summaryZh : item.summary;
   const precision = item => t().precisionNames[item.locationPrecision] || item.locationPrecision;
-  const connected = id => relations.filter(r=>r.a===id || r.b===id);
-  const matches = () => items.filter(i=>state.active.has(i.category) && [i.name,i.nameZh,i.summary,i.town,i.area].join(' ').toLowerCase().includes(state.query.toLowerCase()));
-  const map = L.map('mapViewport',{center:[31.29,120.94],zoom:11,zoomControl:false,preferCanvas:true});
-  const baseLayers = {
-    zh: L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',{subdomains:'1234',maxZoom:18,minZoom:9,noWrap:true,keepBuffer:0,updateWhenIdle:true,attribution:'&copy; 高德地图'}),
-    en: L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=en&size=1&scale=1&style=8&x={x}&y={y}&z={z}',{subdomains:'1234',maxZoom:18,minZoom:9,noWrap:true,keepBuffer:0,updateWhenIdle:true,attribution:'&copy; AMap'})
+  const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
+  const connected = id => relations.filter(relation => relation.a === id || relation.b === id);
+  const relationLabel = relation => state.language === 'zh' ? (relationLabelsZh[relation.label] || relation.label) : relation.label;
+  const matches = () => items.filter(item => state.active.has(item.category) && [item.name, item.nameZh, item.summary, item.summaryZh, item.town, item.area].join(' ').toLowerCase().includes(state.query.toLowerCase()));
+
+  const map = L.map('mapViewport', { center: [31.29, 120.94], zoom: 11, zoomControl: false, preferCanvas: true });
+  const mapBounds = [[30.90222470517144, 120.41015625], [31.653381399663985, 121.46484375]];
+  map.createPane('cachedBase'); map.getPane('cachedBase').style.zIndex = 150;
+  const cachedLayers = {
+    zh: L.imageOverlay('assets/map/kunshan-osm-z11.jpg', mapBounds, { pane: 'cachedBase', opacity: 1, interactive: false, alt: '昆山中文缓存地图' }),
+    en: L.imageOverlay('assets/map/kunshan-english-nolabels-z11.jpg', mapBounds, { pane: 'cachedBase', opacity: 1, interactive: false, alt: 'Cached English-mode road map of Kunshan' })
   };
-  let baseLayer;
-  function setBaseLayer(language){const next=baseLayers[language];if(baseLayer===next)return;if(baseLayer)map.removeLayer(baseLayer);next.addTo(map);baseLayer=next;}
-  const markerLayer=L.layerGroup().addTo(map), routeLayer=L.layerGroup().addTo(map);
-  const icon = (i,selected) => L.divIcon({className:'cultural-marker-wrap',html:`<span class="cultural-marker ${selected?'is-selected':''}" style="--marker:${categoryById.get(i.category).color}"><b>${categoryById.get(i.category).emoji}</b></span>`,iconSize:selected?[48,48]:[40,40],iconAnchor:selected?[24,24]:[20,20]});
-  const radians=Math.PI/180;
-  const distance=(a,b)=>{const dlat=(b.lat-a.lat)*radians,dlng=(b.lng-a.lng)*radians,q=Math.sin(dlat/2)**2+Math.cos(a.lat*radians)*Math.cos(b.lat*radians)*Math.sin(dlng/2)**2;return 6371*2*Math.atan2(Math.sqrt(q),Math.sqrt(1-q))};
-  function renderFilters(){ $('categoryFilters').innerHTML=categories.map(c=>`<button type="button" class="filter ${state.active.has(c.id)?'active':''}" data-category="${c.id}" style="--category:${c.color}" aria-pressed="${state.active.has(c.id)}"><span>${c.icon}</span>${t().categoriesNames[c.id]}<b>${items.filter(i=>i.category===c.id).length}</b></button>`).join(''); }
-  function renderList(){const found=matches();$('resultCount').textContent=found.length;$('itemList').innerHTML=found.length?found.map(i=>`<button type="button" class="item-card ${state.selected===i.id?'selected':''}" data-id="${i.id}"><span class="item-icon" style="background:${categoryById.get(i.category).color}18;color:${categoryById.get(i.category).color}">${categoryById.get(i.category).emoji}</span><span><strong>${escapeHtml(name(i))}</strong><small>${t().categoriesNames[i.category]} · ${escapeHtml(i.town)}</small><em>${escapeHtml(precision(i))}</em></span><i>›</i></button>`).join(''):`<div class="empty">${t().empty}</div>`;}
-  function renderMarkers(){markerLayer.clearLayers();matches().forEach(i=>L.marker([i.lat,i.lng],{icon:icon(i,state.selected===i.id),title:name(i),alt:name(i),keyboard:true,riseOnHover:true}).on('click',()=>select(i.id)).addTo(markerLayer));}
-  function renderDetails(){const i=byId.get(state.selected),panel=$('detailPanel');if(!i){panel.innerHTML=`<div class="detail-empty"><span>⌖</span><h2>${t().detailTitle}</h2><p>${t().detailEmpty}</p></div>`;return;}
-    const c=categoryById.get(i.category),links=connected(i.id),routable=i.locationPrecision==='specific-site';
-    const sourceLinks=i.sourceIds.map(id=>sources.get(id)).filter(Boolean).map(s=>`<a href="${escapeHtml(s.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(s.publisher)} · ${escapeHtml(s.title)}</a>`).join('');
-    panel.innerHTML=`<div class="detail-top"><span class="category-chip" style="--category:${c.color}">${t().categoriesNames[i.category]}</span><button id="closeDetail" aria-label="Close">×</button></div><div class="detail-hero" style="--hero:${c.color}"><span>${c.emoji}</span><small>${escapeHtml(i.area)}</small></div><div class="detail-content"><h1>${escapeHtml(name(i))}</h1><p>${escapeHtml(summary(i))}</p><div class="practical"><span>⌖</span><div><b>${t().practical}</b><small>${escapeHtml(i.town)} · ${t().precision}: ${escapeHtml(precision(i))}</small></div></div><div class="evidence"><b>${t().source}</b>${sourceLinks}</div><div class="relations"><b>${t().related} (${links.length})</b>${links.length?links.map(r=>{const other=byId.get(r.a===i.id?r.b:r.a);return `<button type="button" data-related="${other.id}">${escapeHtml(name(other))} <small>${escapeHtml(r.label)} · ${r.sourceIds.length} source(s)</small></button>`}).join(''):`<p>${t().noRelated}</p>`}</div><button id="saveButton" class="save-button ${state.saved.includes(i.id)?'saved':''}" ${routable?'':'disabled'}>${routable?(state.saved.includes(i.id)?t().saved:t().save):t().unroutable}</button></div>`;
-    $('closeDetail').onclick=()=>select(null);$('saveButton').onclick=()=>toggleSave(i.id);
-    panel.querySelectorAll('[data-related]').forEach(button=>button.onclick=()=>select(button.dataset.related,true));
+  const baseLayers = {
+    zh: L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', { subdomains: '1234', maxZoom: 18, minZoom: 9, keepBuffer: 1, updateWhenIdle: true, opacity: .88, attribution: '&copy; 高德地图' }),
+    en: L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=en&size=1&scale=1&style=8&x={x}&y={y}&z={z}', { subdomains: '1234', maxZoom: 18, minZoom: 9, keepBuffer: 1, updateWhenIdle: true, opacity: 1, attribution: '&copy; AMap' })
+  };
+  let baseLayer, cachedLayer;
+  function setBaseLayer(language) {
+    const next = baseLayers[language], nextCached = cachedLayers[language];
+    if (baseLayer) map.removeLayer(baseLayer); if (cachedLayer) map.removeLayer(cachedLayer);
+    nextCached.addTo(map); next.addTo(map);
+    baseLayer = next; cachedLayer = nextCached;
   }
-  function select(id,focus=false){state.selected=byId.has(id)?id:null;renderDetails();renderList();renderMarkers();renderPatterns();if(focus&&state.selected){setView('map');const i=byId.get(id);map.flyTo([i.lat,i.lng],14,{duration:.6})}}
-  function toggleSave(id){const i=byId.get(id);if(!i||i.locationPrecision!=='specific-site')return;const index=state.saved.indexOf(id);if(index>=0){state.saved.splice(index,1);state.route=state.route.filter(x=>x!==id)}else state.saved.push(id);renderDetails();renderRoute();renderRouteLine()}
-  function renderRoute(){const route=state.route.map(id=>byId.get(id));$('routePanel').innerHTML=`<div class="route-head"><div><span>${t().route}</span><strong>${t().savedPlaces(state.saved.length)}</strong></div></div><div class="route-body"><div class="saved-stops">${state.saved.length?state.saved.map((id,n)=>`<div class="saved-stop" draggable="true" data-saved="${id}"><b>${n+1}</b><span>${escapeHtml(name(byId.get(id)))}</span><button data-remove="${id}" aria-label="${t().remove} ${escapeHtml(name(byId.get(id)))}">×</button></div>`).join(''):`<p class="route-empty">${t().routeEmpty}</p>`}</div><button id="generateRoute" class="generate" ${state.saved.length<2?'disabled':''}>${t().generate} →</button>${route.length?`<div class="route-result"><b>${t().routeSummary(route.length)}</b><p>${route.map((i,n)=>`${n+1}. ${escapeHtml(name(i))}`).join(' → ')}</p></div>`:''}</div>`;
-    $('routePanel').querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>toggleSave(b.dataset.remove));$('generateRoute').onclick=generateRoute;
-    let dragged=null;$('routePanel').querySelectorAll('[data-saved]').forEach(el=>{el.ondragstart=()=>{dragged=el.dataset.saved};el.ondragover=e=>e.preventDefault();el.ondrop=e=>{e.preventDefault();if(!dragged||dragged===el.dataset.saved)return;const from=state.saved.indexOf(dragged),to=state.saved.indexOf(el.dataset.saved);state.saved.splice(from,1);state.saved.splice(to,0,dragged);state.route=[];renderRoute();renderRouteLine()}});
+  const markerLayer = L.layerGroup().addTo(map), routeLayer = L.layerGroup().addTo(map);
+  function markerIcon(item, selected, count = 1) { return L.divIcon({ className: 'cultural-marker-wrap', html: `<span class="cultural-marker ${selected ? 'is-selected' : ''} ${count > 1 ? 'is-cluster' : ''}" style="--marker:${categoryById.get(item.category).color}"><span class="marker-photo"><img src="${escapeHtml(item.image)}" alt=""></span></span>`, iconSize: selected ? [82, 82] : [62, 62], iconAnchor: selected ? [41, 41] : [31, 31] }); }
+  const radians = Math.PI / 180;
+  function distance(a, b) { const dlat = (b.lat - a.lat) * radians, dlng = (b.lng - a.lng) * radians; const value = Math.sin(dlat / 2) ** 2 + Math.cos(a.lat * radians) * Math.cos(b.lat * radians) * Math.sin(dlng / 2) ** 2; return 6371 * 2 * Math.atan2(Math.sqrt(value), Math.sqrt(1 - value)); }
+
+  function renderFilters() { $('categoryFilters').innerHTML = categories.map(category => `<button type="button" class="filter ${state.active.has(category.id) ? 'active' : ''}" data-category="${category.id}" style="--category:${category.color}" aria-pressed="${state.active.has(category.id)}"><span>${category.icon}</span>${t().categoriesNames[category.id]}<b>${items.filter(item => item.category === category.id).length}</b></button>`).join(''); }
+  function renderList() { const found = matches(); $('resultCount').textContent = found.length; $('itemList').innerHTML = found.length ? found.map(item => `<button type="button" class="item-card ${state.selected === item.id ? 'selected' : ''}" data-id="${item.id}"><img class="item-photo" src="${escapeHtml(item.image)}" alt="" loading="lazy"><span><strong>${escapeHtml(name(item))}</strong><small>${t().categoriesNames[item.category]} · ${escapeHtml(item.town)}</small><em>${escapeHtml(precision(item))}</em></span><i>›</i></button>`).join('') : `<div class="empty">${t().empty}</div>`; }
+  function renderMarkers() {
+    markerLayer.clearLayers();
+    const groups = new Map();
+    const groupPrecision = map.getZoom() <= 11 ? 1 : 2;
+    matches().forEach(item => {
+      const key = `${item.lat.toFixed(groupPrecision)}:${item.lng.toFixed(groupPrecision)}`;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(item);
+    });
+    const expanded = map.getZoom() >= 14;
+    groups.forEach(group => {
+      const center = { lat: group.reduce((sum, item) => sum + item.lat, 0) / group.length, lng: group.reduce((sum, item) => sum + item.lng, 0) / group.length };
+      if (!expanded && group.length > 1) {
+        const representative = group.find(item => item.id === state.selected) || group[0];
+        L.marker([center.lat, center.lng], { icon: markerIcon(representative, group.some(item => item.id === state.selected), group.length), title: `${name(representative)} +${group.length - 1}`, alt: `${group.length} cultural records`, keyboard: true, riseOnHover: true }).on('click', () => map.flyTo([center.lat, center.lng], 14, { duration: .55 })).addTo(markerLayer);
+        return;
+      }
+      const radius = group.length > 1 ? Math.min(.0032, .0012 + group.length * .00012) : 0;
+      group.forEach((item, index) => {
+        const angle = group.length > 1 ? 2 * Math.PI * index / group.length : 0;
+        const lat = item.lat + Math.sin(angle) * radius;
+        const lng = item.lng + Math.cos(angle) * radius / Math.cos(item.lat * radians);
+        L.marker([lat, lng], { icon: markerIcon(item, state.selected === item.id), title: name(item), alt: name(item), keyboard: true, riseOnHover: true }).on('click', () => select(item.id)).addTo(markerLayer);
+      });
+    });
   }
-  function generateRoute(){const remaining=state.saved.map(id=>byId.get(id));if(remaining.length<2)return;const ordered=[remaining.shift()];while(remaining.length){remaining.sort((a,b)=>distance(ordered.at(-1),a)-distance(ordered.at(-1),b));ordered.push(remaining.shift())}state.route=ordered.map(i=>i.id);renderRoute();renderRouteLine()}
-  function renderRouteLine(){routeLayer.clearLayers();const route=state.route.map(id=>byId.get(id));if(route.length<2)return;L.polyline(route.map(i=>[i.lat,i.lng]),{color:'#d94f42',weight:5,dashArray:'10 7'}).addTo(routeLayer);route.forEach((i,n)=>L.marker([i.lat,i.lng],{interactive:false,icon:L.divIcon({className:'route-stop-wrap',html:`<span class="route-stop">${n+1}</span>`,iconSize:[24,24],iconAnchor:[12,12]})}).addTo(routeLayer))}
-  function networkSubset(){let ids;if(state.selected){const neighbors=connected(state.selected).map(r=>r.a===state.selected?r.b:r.a);ids=[state.selected,...neighbors].slice(0,24)}else{const degree=new Map(items.map(i=>[i.id,connected(i.id).length]));ids=items.filter(i=>state.active.has(i.category)).sort((a,b)=>degree.get(b.id)-degree.get(a.id)).slice(0,20).map(i=>i.id)}return {ids,edges:relations.filter(r=>ids.includes(r.a)&&ids.includes(r.b))}}
-  function renderPatterns(){const max=Math.max(...categories.map(c=>items.filter(i=>i.category===c.id).length));$('categoryChart').innerHTML=categories.map(c=>{const n=items.filter(i=>i.category===c.id).length;return `<button type="button" class="chart-row ${state.active.has(c.id)?'active':''}" data-chart-category="${c.id}" aria-pressed="${state.active.has(c.id)}"><span>${t().categoriesNames[c.id]}</span><span class="chart-track"><span style="width:${n/max*100}%;background:${c.color}"></span></span><b>${n}</b></button>`}).join('');
-    const {ids,edges}=networkSubset(),positions=new Map(ids.map((id,n)=>[id,{x:300+210*Math.cos(2*Math.PI*n/ids.length-Math.PI/2),y:190+128*Math.sin(2*Math.PI*n/ids.length-Math.PI/2)}]));
-    $('networkGraph').innerHTML=edges.map(r=>{const a=positions.get(r.a),b=positions.get(r.b);return `<line class="network-edge" x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"><title>${escapeHtml(r.label)} · ${r.sourceIds.length} source(s)</title></line>`}).join('')+ids.map(id=>{const i=byId.get(id),p=positions.get(id);return `<g class="network-node ${state.selected===id?'selected':''}" data-node="${id}" tabindex="0" role="button" aria-label="${escapeHtml(name(i))}" transform="translate(${p.x},${p.y})"><circle r="17" fill="${categoryById.get(i.category).color}"/><text class="node-icon" text-anchor="middle" dominant-baseline="central">${categoryById.get(i.category).emoji}</text><text class="node-label" text-anchor="middle" y="31">${escapeHtml(name(i).slice(0,12))}</text><title>${escapeHtml(name(i))}</title></g>`}).join('');$('networkLegend').textContent=t().networkCount(ids.length,edges.length);
+  function contextText(item, relation) { if (state.language === 'en') return relation.summary; const other = byId.get(relation.a === item.id ? relation.b : relation.a); return `${name(item)}与${name(other)}之间记录有“${relationLabel(relation)}”的文化联系；该联系来自所列资料来源。`; }
+  function renderDetails() {
+    const item = byId.get(state.selected), panel = $('detailPanel');
+    if (!item) { panel.innerHTML = `<div class="detail-empty"><span>⌖</span><h2>${t().detailTitle}</h2><p>${t().detailEmpty}</p></div>`; return; }
+    const category = categoryById.get(item.category), links = connected(item.id);
+    const sourceLinks = item.sourceIds.map(id => sources.get(id)).filter(Boolean).map(source => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.publisher)} · ${escapeHtml(source.title)}</a>`).join('');
+    const relationCards = links.length ? links.slice(0, 6).map(relation => { const other = byId.get(relation.a === item.id ? relation.b : relation.a); return `<button type="button" data-related="${other.id}"><strong>${escapeHtml(name(other))}</strong><small>${escapeHtml(relationLabel(relation))}</small><span>${escapeHtml(contextText(item, relation))}</span></button>`; }).join('') : `<p>${t().noRelated}</p>`;
+    panel.innerHTML = `<div class="detail-top"><span class="category-chip" style="--category:${category.color}">${t().categoriesNames[item.category]}</span><button id="closeDetail" aria-label="Close">×</button></div><div class="detail-hero" style="--hero:${category.color}"><img src="${escapeHtml(item.image)}" alt="${escapeHtml(name(item))}"><small>${escapeHtml(item.area)}</small></div><div class="detail-content"><h1>${escapeHtml(name(item))}</h1><p class="introduction">${escapeHtml(summary(item))}</p><div class="practical"><span>⌖</span><div><b>${t().practical}</b><small>${escapeHtml(item.town)} · ${t().precision}: ${escapeHtml(precision(item))}</small></div></div><div class="evidence"><b>${t().source}</b>${sourceLinks}<small class="image-credit"><b>${t().imageCredit}:</b> <a href="${escapeHtml(item.imageSource)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.imageCredit)}</a></small></div><div class="relations"><b>${t().related} (${links.length})</b>${relationCards}</div><button id="saveButton" class="save-button ${state.saved.includes(item.id) ? 'saved' : ''}">${state.saved.includes(item.id) ? t().saved : t().save}</button></div>`;
+    $('closeDetail').onclick = () => select(null); $('saveButton').onclick = () => toggleSave(item.id); panel.querySelectorAll('[data-related]').forEach(button => { button.onclick = () => select(button.dataset.related, true); });
   }
-  function setView(view){state.view=view;const visible=view==='patterns';$('patternsPanel').hidden=!visible;$('mapViewButton').setAttribute('aria-pressed',String(!visible));$('patternsViewButton').setAttribute('aria-pressed',String(visible));if(!visible)requestAnimationFrame(()=>map.invalidateSize())}
-  function refresh(){renderFilters();renderList();renderMarkers();renderPatterns()}
-  function setLanguage(language){state.language=language;setBaseLayer(language);try{localStorage.setItem('kunshan-map-language',language)}catch{}document.documentElement.lang=language==='zh'?'zh-CN':'en';document.title=t().title;$('brandTitle').textContent=t().title;$('brandSubtitle').textContent=t().subtitle;$('searchInput').placeholder=t().search;$('categoryHeading').textContent=t().categories;$('clearFilters').textContent=t().clear;$('resultLabel').textContent=t().discoveries;$('surpriseButton').innerHTML=`<span>✦</span> ${t().surprise}`;$('mapLabel').innerHTML=`<i></i> ${t().mapLabel}`;$('mapHint').textContent=t().mapHint;$('mapViewport').setAttribute('aria-label',t().mapAria);$('mapViewButton').textContent=t().map;$('patternsViewButton').textContent=t().patterns;$('patternsTitle').textContent=t().patternsTitle;$('patternsIntro').textContent=t().patternsIntro;$('chartTitle').textContent=t().chartTitle;$('chartHint').textContent=t().chartHint;$('networkTitle').textContent=t().networkTitle;$('networkHint').textContent=t().networkHint;$('networkGraph').setAttribute('aria-label',t().networkAria);document.querySelectorAll('[data-language]').forEach(b=>{b.classList.toggle('active',b.dataset.language===language);b.setAttribute('aria-pressed',String(b.dataset.language===language))});refresh();renderDetails();renderRoute()}
-  $('categoryFilters').onclick=e=>{const b=e.target.closest('[data-category]');if(!b)return;state.active.has(b.dataset.category)?state.active.delete(b.dataset.category):state.active.add(b.dataset.category);refresh()};
-  $('categoryChart').onclick=e=>{const b=e.target.closest('[data-chart-category]');if(!b)return;const id=b.dataset.chartCategory;state.active=new Set(state.active.size===1&&state.active.has(id)?categories.map(c=>c.id):[id]);refresh()};
-  $('itemList').onclick=e=>{const b=e.target.closest('[data-id]');if(b)select(b.dataset.id,true)};
-  $('networkGraph').onclick=e=>{const n=e.target.closest('[data-node]');if(n)select(n.dataset.node)};
-  $('networkGraph').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){const n=e.target.closest('[data-node]');if(n){e.preventDefault();select(n.dataset.node)}}};
-  $('searchInput').oninput=e=>{state.query=e.target.value;refresh()};$('clearFilters').onclick=()=>{state.query='';$('searchInput').value='';state.active=new Set(categories.map(c=>c.id));refresh()};
-  $('surpriseButton').onclick=()=>{const found=matches();if(found.length)select(found[Math.floor(Math.random()*found.length)].id,true)};
-  document.querySelector('.language-toggle').onclick=e=>{const b=e.target.closest('[data-language]');if(b)setLanguage(b.dataset.language)};
-  $('mapViewButton').onclick=()=>setView('map');$('patternsViewButton').onclick=()=>setView('patterns');
-  $('zoomIn').onclick=()=>map.zoomIn();$('zoomOut').onclick=()=>map.zoomOut();$('resetMap').onclick=()=>map.setView([31.29,120.94],11);
-  setLanguage(state.language);requestAnimationFrame(()=>map.invalidateSize());
+  function select(id, focus = false) { state.selected = byId.has(id) ? id : null; renderDetails(); renderList(); renderMarkers(); renderPatterns(); if (focus && state.selected) { setView('map'); const item = byId.get(id); map.flyTo([item.lat, item.lng], 14, { duration: .6 }); } }
+  function toggleSave(id) { if (!byId.has(id)) return; const index = state.saved.indexOf(id); if (index >= 0) state.saved.splice(index, 1); else state.saved.push(id); state.routes = {}; renderDetails(); renderRoute(); renderRouteLine(); }
+
+  function fastestOrder(selected) { const remaining = [...selected], ordered = [remaining.shift()]; while (remaining.length) { remaining.sort((a, b) => distance(ordered.at(-1), a) - distance(ordered.at(-1), b)); ordered.push(remaining.shift()); } return ordered; }
+  function scenicOrder(selected) { const scenicWeight = { Places: .72, Stories: .77, Traditions: .8, Food: .9, Artifacts: .86 }; const remaining = [...selected], ordered = [remaining.shift()]; while (remaining.length) { remaining.sort((a, b) => distance(ordered.at(-1), a) * scenicWeight[a.category] - connected(a.id).length * .08 - (distance(ordered.at(-1), b) * scenicWeight[b.category] - connected(b.id).length * .08)); ordered.push(remaining.shift()); } return ordered; }
+  function convenientOrder(selected) { const groups = new Map(); selected.forEach(item => { if (!groups.has(item.town)) groups.set(item.town, []); groups.get(item.town).push(item); }); const remainingGroups = [...groups.values()], ordered = []; while (remainingGroups.length) { const previous = ordered.at(-1); remainingGroups.sort((a, b) => previous ? Math.min(...a.map(item => distance(previous, item))) - Math.min(...b.map(item => distance(previous, item))) : b.length - a.length); const group = remainingGroups.shift(); const startIndex = previous ? group.reduce((best, item, index) => distance(previous, item) < distance(previous, group[best]) ? index : best, 0) : 0; group.unshift(group.splice(startIndex, 1)[0]); ordered.push(...fastestOrder(group)); } return ordered; }
+  function transportFor(km, mode) { if (km <= 1.3) return 'walk'; if (km <= 5 && mode !== 'fastest') return 'cycle'; if (mode === 'convenient') return 'transit'; return 'taxi'; }
+  function buildRoute(mode) { const selected = state.saved.map(id => byId.get(id)).filter(Boolean); if (selected.length < 2) return null; const stops = mode === 'scenic' ? scenicOrder(selected) : mode === 'convenient' ? convenientOrder(selected) : fastestOrder(selected); const legs = stops.slice(1).map((stop, index) => { const km = distance(stops[index], stop), transport = transportFor(km, mode), speed = { walk: 4.5, cycle: 13, transit: 22, taxi: 32 }[transport]; return { from: stops[index], to: stop, km, transport, minutes: Math.max(3, Math.round(km / speed * 60 + (transport === 'transit' ? 8 : 0))) }; }); return { mode, stops, legs, km: legs.reduce((sum, leg) => sum + leg.km, 0), minutes: legs.reduce((sum, leg) => sum + leg.minutes, 0) }; }
+  function generateRoutes() { ['fastest', 'scenic', 'convenient'].forEach(mode => { state.routes[mode] = buildRoute(mode); }); renderRoute(); renderRouteLine(); }
+  function renderRoute() {
+    const route = state.routes[state.routeMode];
+    const modes = ['fastest', 'scenic', 'convenient'].map(mode => `<button type="button" class="route-mode ${state.routeMode === mode ? 'active' : ''}" data-route-mode="${mode}" aria-pressed="${state.routeMode === mode}">${t().routeModes[mode]}</button>`).join('');
+    const saved = state.saved.length ? state.saved.map((id, index) => { const item = byId.get(id); return `<div class="saved-stop"><b>${index + 1}</b><img src="${escapeHtml(item.image)}" alt=""><span>${escapeHtml(name(item))}</span><button data-remove="${id}" aria-label="${t().remove} ${escapeHtml(name(item))}">×</button></div>`; }).join('') : `<p class="route-empty">${t().routeEmpty}</p>`;
+    const result = route ? `<div class="route-result"><div class="route-summary"><b>${t().routeSummary(route.stops.length, route.km.toFixed(1), route.minutes)}</b><span>${t().routeDescriptions[state.routeMode]}</span></div><div class="route-legs">${route.legs.map((leg, index) => `<div class="route-leg"><b>${index + 1}</b><span>${escapeHtml(name(leg.from))}<i>→</i>${escapeHtml(name(leg.to))}</span><em>${t().transport[leg.transport]} · ${leg.km.toFixed(1)} km · ~${leg.minutes} min</em></div>`).join('')}</div><small class="route-caveat">${t().routeCaveat}</small></div>` : '';
+    $('routePanel').innerHTML = `<div class="route-head"><div><span>${t().route}</span><strong>${t().savedPlaces(state.saved.length)}</strong></div><div class="route-modes" role="group">${modes}</div></div><div class="route-body"><div class="saved-stops">${saved}</div><button id="generateRoute" class="generate" ${state.saved.length < 2 ? 'disabled' : ''}>${t().generate} →</button>${result}</div>`;
+    $('routePanel').querySelectorAll('[data-remove]').forEach(button => { button.onclick = () => toggleSave(button.dataset.remove); });
+    $('routePanel').querySelectorAll('[data-route-mode]').forEach(button => { button.onclick = () => { state.routeMode = button.dataset.routeMode; if (state.saved.length >= 2 && !state.routes[state.routeMode]) generateRoutes(); else { renderRoute(); renderRouteLine(); } }; });
+    $('generateRoute').onclick = generateRoutes;
+  }
+  function renderRouteLine() { routeLayer.clearLayers(); const route = state.routes[state.routeMode]; if (!route) return; const color = { fastest: '#d94f42', scenic: '#2b7b65', convenient: '#3568a9' }[state.routeMode]; L.polyline(route.stops.map(item => [item.lat, item.lng]), { color, weight: 5, dashArray: state.routeMode === 'fastest' ? '10 7' : null, opacity: .9 }).addTo(routeLayer); route.stops.forEach((item, index) => L.marker([item.lat, item.lng], { interactive: false, icon: L.divIcon({ className: 'route-stop-wrap', html: `<span class="route-stop" style="--route-color:${color}">${index + 1}</span>`, iconSize: [26, 26], iconAnchor: [13, 13] }) }).addTo(routeLayer)); map.fitBounds(route.stops.map(item => [item.lat, item.lng]), { padding: [58, 58], maxZoom: 14 }); }
+
+  function networkSubset() { let ids; if (state.selected) ids = [state.selected, ...connected(state.selected).map(relation => relation.a === state.selected ? relation.b : relation.a)].slice(0, 24); else { const degree = new Map(items.map(item => [item.id, connected(item.id).length])); ids = items.filter(item => state.active.has(item.category)).sort((a, b) => degree.get(b.id) - degree.get(a.id)).slice(0, 16).map(item => item.id); } return { ids, edges: relations.filter(relation => ids.includes(relation.a) && ids.includes(relation.b)) }; }
+  function renderPatterns() {
+    const max = Math.max(...categories.map(category => items.filter(item => item.category === category.id).length));
+    $('categoryChart').innerHTML = categories.map(category => { const count = items.filter(item => item.category === category.id).length; return `<button type="button" class="chart-row ${state.active.has(category.id) ? 'active' : ''}" data-chart-category="${category.id}" aria-pressed="${state.active.has(category.id)}"><span>${t().categoriesNames[category.id]}</span><span class="chart-track"><span style="width:${count / max * 100}%;background:${category.color}"></span></span><b>${count}</b></button>`; }).join('');
+    const { ids, edges } = networkSubset(), positions = new Map(ids.map((id, index) => [id, { x: 300 + 215 * Math.cos(2 * Math.PI * index / ids.length - Math.PI / 2), y: 190 + 130 * Math.sin(2 * Math.PI * index / ids.length - Math.PI / 2) }]));
+    $('networkGraph').innerHTML = edges.map(relation => { const a = positions.get(relation.a), b = positions.get(relation.b); return `<line class="network-edge" x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"><title>${escapeHtml(relationLabel(relation))}</title></line>`; }).join('') + ids.map(id => { const item = byId.get(id), position = positions.get(id); return `<g class="network-node ${state.selected === id ? 'selected' : ''}" data-node="${id}" tabindex="0" role="button" aria-label="${escapeHtml(name(item))}" transform="translate(${position.x},${position.y})"><defs><clipPath id="clip-${id}"><circle r="19"/></clipPath></defs><circle r="21" fill="${categoryById.get(item.category).color}"/><image href="${escapeHtml(item.image)}" x="-18" y="-18" width="36" height="36" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-${id})"/><text class="node-label" text-anchor="middle" y="34">${escapeHtml(name(item).slice(0, 13))}</text><title>${escapeHtml(name(item))}</title></g>`; }).join('');
+    $('networkLegend').textContent = t().networkCount(ids.length, edges.length);
+  }
+  function setView(view) { state.view = view; const visible = view === 'patterns'; $('patternsPanel').hidden = !visible; $('mapViewButton').setAttribute('aria-pressed', String(!visible)); $('patternsViewButton').setAttribute('aria-pressed', String(visible)); if (!visible) requestAnimationFrame(() => map.invalidateSize()); }
+  function refresh() { renderFilters(); renderList(); renderMarkers(); renderPatterns(); }
+  function setLanguage(language) {
+    state.language = language; setBaseLayer(language); try { localStorage.setItem('kunshan-map-language', language); } catch {}
+    document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en'; document.title = t().title; $('brandTitle').textContent = t().title; $('brandSubtitle').textContent = t().subtitle; $('searchInput').placeholder = t().search; $('categoryHeading').textContent = t().categories; $('clearFilters').textContent = t().clear; $('resultLabel').textContent = t().discoveries; $('surpriseButton').innerHTML = `<span>✦</span> ${t().surprise}`; $('mapLabel').innerHTML = `<i></i> ${t().mapLabel}`; $('mapHint').textContent = t().mapHint; $('mapViewport').setAttribute('aria-label', t().mapAria); $('mapViewButton').textContent = t().map; $('patternsViewButton').textContent = t().patterns; $('patternsTitle').textContent = t().patternsTitle; $('patternsIntro').textContent = t().patternsIntro; $('chartTitle').textContent = t().chartTitle; $('chartHint').textContent = t().chartHint; $('networkTitle').textContent = t().networkTitle; $('networkHint').textContent = t().networkHint; $('networkGraph').setAttribute('aria-label', t().networkAria);
+    document.querySelectorAll('[data-language]').forEach(button => { button.classList.toggle('active', button.dataset.language === language); button.setAttribute('aria-pressed', String(button.dataset.language === language)); }); refresh(); renderDetails(); renderRoute();
+  }
+  $('categoryFilters').onclick = event => { const button = event.target.closest('[data-category]'); if (!button) return; state.active.has(button.dataset.category) ? state.active.delete(button.dataset.category) : state.active.add(button.dataset.category); refresh(); };
+  $('categoryChart').onclick = event => { const button = event.target.closest('[data-chart-category]'); if (!button) return; const id = button.dataset.chartCategory; state.active = new Set(state.active.size === 1 && state.active.has(id) ? categories.map(category => category.id) : [id]); refresh(); };
+  $('itemList').onclick = event => { const button = event.target.closest('[data-id]'); if (button) select(button.dataset.id, true); };
+  $('networkGraph').onclick = event => { const node = event.target.closest('[data-node]'); if (node) select(node.dataset.node); };
+  $('networkGraph').onkeydown = event => { if (event.key === 'Enter' || event.key === ' ') { const node = event.target.closest('[data-node]'); if (node) { event.preventDefault(); select(node.dataset.node); } } };
+  $('searchInput').oninput = event => { state.query = event.target.value; refresh(); };
+  $('clearFilters').onclick = () => { state.query = ''; $('searchInput').value = ''; state.active = new Set(categories.map(category => category.id)); refresh(); };
+  $('surpriseButton').onclick = () => { const found = matches(); if (found.length) select(found[Math.floor(Math.random() * found.length)].id, true); };
+  document.querySelector('.language-toggle').onclick = event => { const button = event.target.closest('[data-language]'); if (button) setLanguage(button.dataset.language); };
+  $('mapViewButton').onclick = () => setView('map'); $('patternsViewButton').onclick = () => setView('patterns'); $('zoomIn').onclick = () => map.zoomIn(); $('zoomOut').onclick = () => map.zoomOut(); $('resetMap').onclick = () => map.setView([31.29, 120.94], 11);
+  map.on('zoomend', renderMarkers);
+  setLanguage(state.language);
+  if (new URLSearchParams(location.search).get('view') === 'patterns') setView('patterns');
+  requestAnimationFrame(() => map.invalidateSize());
+  if (new URLSearchParams(location.search).has('smoke')) setTimeout(() => { const output = document.createElement('output'); output.id = 'smoke-test-result'; output.hidden = true; document.body.appendChild(output); try { ['zhouzhuang_town', 'jinxi_town', 'qiandeng_town'].forEach(toggleSave); generateRoutes(); setLanguage('zh'); const valid = items.length === 82 && document.querySelectorAll('.item-photo').length > 0 && document.querySelectorAll('.route-mode').length === 3 && Object.keys(state.routes).length === 3 && $('patternsPanel'); if (!valid) throw new Error('Expected bilingual image, patterns, and route features were not rendered'); output.dataset.status = 'pass'; output.textContent = 'PASS: 82 unique images · bilingual map · two idioms · three route modes'; } catch (error) { output.dataset.status = 'fail'; output.textContent = `FAIL: ${error.message}`; } }, 250);
 })();

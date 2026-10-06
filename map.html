@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kunshan Cultural Map: discover culture, save places, and plan a route." />
+    <title>Kunshan Cultural Map</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%231c4d57' d='M8 11h48v42H8z'/%3E%3Cpath fill='%23f3b841' d='M16 21h32v5H16zm0 10h24v5H16zm0 10h32v5H16z'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="vendor/leaflet.css" />
+    <link rel="stylesheet" href="styles.css?v=cultural-polish-10" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="explorePanel" aria-label="Cultural discovery">
+        <header class="brand"><a class="brand-mark" href="index.html" aria-label="Home">昆</a><div><strong id="brandTitle">Kunshan Cultural Map</strong><small id="brandSubtitle">Explore culture, place by place</small></div><div class="language-toggle" role="group" aria-label="Language"><button type="button" data-language="en">EN</button><button type="button" data-language="zh">中文</button></div></header>
+        <label class="search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search culture, places, or stories" autocomplete="off" /></label>
+        <div class="filter-heading"><span id="categoryHeading">Categories</span><button id="clearFilters" class="text-button">Clear</button></div>
+        <nav id="categoryFilters" class="filters" aria-label="Cultural category filters"></nav>
+        <div class="results-meta"><strong id="resultCount">0</strong><span id="resultLabel">cultural discoveries</span></div>
+        <section id="itemList" class="item-list" aria-label="文化发现列表"></section>
+        <button id="surpriseButton" class="surprise" type="button"><span>✦</span> Surprise me</button>
+      </aside>
+
+      <main class="map-area">
+        <div class="map-toolbar"><span id="mapLabel" class="map-label"><i></i> Kunshan · Cultural discovery</span><div class="zoom-controls"><button id="zoomIn" aria-label="Zoom in">+</button><button id="zoomOut" aria-label="Zoom out">−</button><button id="resetMap" aria-label="Reset map">⌖</button></div></div>
+        <div class="view-switch" role="group" aria-label="Visualization view"><button id="mapViewButton" type="button" aria-pressed="true">Map</button><button id="patternsViewButton" type="button" aria-pressed="false">Patterns</button></div>
+        <section id="patternsPanel" class="patterns-panel" hidden aria-label="Cultural patterns"><div class="patterns-intro"><h2 id="patternsTitle">Cultural patterns</h2><p id="patternsIntro">Compare categories and explore sourced cultural connections.</p></div><div class="patterns-grid"><div class="chart-card"><h3 id="chartTitle">Discoveries by category</h3><p id="chartHint">Select a bar to filter the map and list.</p><div id="categoryChart" class="category-chart"></div></div><div class="chart-card network-card"><h3 id="networkTitle">Cultural connections</h3><p id="networkHint">Select a node to see its story. Links come from the source dataset, not travel routes.</p><svg id="networkGraph" viewBox="0 0 600 390" role="img" aria-label="Network of related cultural discoveries"></svg><div id="networkLegend" class="network-legend"></div></div></div></section>
+        <div id="mapViewport" class="map-viewport" aria-label="Interactive Kunshan map. Drag and zoom to explore." tabindex="0"></div>
+        <div id="mapHint" class="map-hint">Drag to explore · Scroll or use controls to zoom</div>
+      </main>
+
+      <aside id="detailPanel" class="detail-panel" aria-live="polite"></aside>
+      <section id="routePanel" class="route-panel" aria-label="Cultural route planning"></section>
+    </div>
+    <script src="data.js"></script>
+    <script src="vendor/leaflet.js"></script>
+    <script src="app.js?v=clean-markers-8"></script>
+  </body>
+</html>
