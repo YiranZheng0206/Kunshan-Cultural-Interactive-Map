@@ -4,9 +4,7 @@ A bilingual course prototype for exploring cultural records in Kunshan. This ver
 
 ## Demo Video
 
-[![Watch the Kunshan Cultural Interactive Map demo](https://img.youtube.com/vi/hiJvn93Gk6s/hqdefault.jpg)](https://youtu.be/hiJvn93Gk6s)
-
-▶️ [Watch the demo on YouTube](https://youtu.be/hiJvn93Gk6s)
+https://github.com/YiranZheng0206/Kunshan-Cultural-Interactive-Map/issues/3#issue-5827810893
 
 The English transcript is included in Appendix E of the project report.
 
