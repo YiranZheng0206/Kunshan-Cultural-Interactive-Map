@@ -8,6 +8,12 @@ A bilingual, source-linked visualization for exploring cultural records in Kunsh
 - Course: Duke Kunshan University, INFOSCI 301, Autumn 2026
 - SDG connection: **Goal 11 — Sustainable Cities and Communities, Target 11.4**
 
+## Demo Video
+
+https://private-user-images.githubusercontent.com/204238628/672125602-122dccc6-a199-48ff-9a42-087e75469aa8.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTE4ODM3OTAsIm5iZiI6MTc5MTg4MzQ5MCwicGF0aCI6Ii8yMDQyMzg2MjgvNjcyMTI1NjAyLTEyMmRjY2M2LWExOTktNDhmZi05YTQyLTA4N2U3NTQ2OWFhOC5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYxMDEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MTAxM1QwOTI0NTBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wNjk1NDhkMzYzZmU2OWY2ZTE4YzY4NjNlMjQ1ODlmMjY2ZjA0ZmNjYzA2MjMyYTZmNDNjOGQ0MDJlNjZhNTczJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9dmlkZW8lMkZtcDQifQ.MPc2st6psk5yF6moKAkMcWL79o1Gv51E848FH_pZMro
+
+The English transcript is included in Appendix E of the project report.
+
 ## Run
 
 Open with a local HTTP server (or deploy the repository to Vercel):
