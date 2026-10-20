@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Kunshan Cultural Map — explore places, food, traditions, artifacts and stories, then create a cultural route." />
     <title>Kunshan Cultural Map</title>
-    <link rel="stylesheet" href="landing.css" />
+    <link rel="stylesheet" href="landing.css?v=porcelain-2" />
   </head>
   <body>
     <main class="landing-shell">
@@ -40,13 +40,30 @@
         <div class="tutorial-grid">
           <article><span class="step-number">01</span><div class="step-icon browse-icon"><i></i><i></i><i></i></div><h3 data-en="Browse the fragments" data-zh="浏览文化项目">Browse the fragments</h3><p data-en="Filter Places, Artifacts, Food, Traditions and Stories. Select any card or photo marker." data-zh="按地点、器物、食物、传统和故事筛选；点击左侧卡片或地图图片标记。">Filter Places, Artifacts, Food, Traditions and Stories. Select any card or photo marker.</p></article>
           <article><span class="step-number">02</span><div class="step-icon pattern-icon"><i></i><i></i><i></i><i></i></div><h3 data-en="Read the cultural context" data-zh="理解文化背景">Read the cultural context</h3><p data-en="Open Patterns to compare categories and explore evidence-linked cultural relationships." data-zh="打开“文化关联”，比较类别分布并探索有资料来源的文化关系。">Open Patterns to compare categories and explore evidence-linked cultural relationships.</p></article>
-          <article><span class="step-number">03</span><div class="step-icon route-icon"><i></i><i></i><i></i></div><h3 data-en="Create a route" data-zh="生成探索路线">Create a route</h3><p data-en="Add two or more records, then compare the fastest, scenic and convenient route options." data-zh="加入两个以上文化项目，再比较最快、最适合观景和交通最方便的路线。">Add two or more records, then compare the fastest, scenic and convenient route options.</p></article>
+          <article><span class="step-number">03</span><div class="step-icon route-icon"><i></i><i></i><i></i></div><h3 data-en="Compare route ideas" data-zh="比较路线方案">Compare route ideas</h3><p data-en="Add two or more records, then compare the fastest, best-for-scenery, and most-convenient options. The convenient option uses public transport for each leg." data-zh="加入两个以上文化项目，再比较最快、最适合观景和交通最方便的方案；“交通最方便”会为每一段使用公共交通。">Add two or more records, then compare the fastest, best-for-scenery, and most-convenient options. The convenient option uses public transport for each leg.</p></article>
         </div>
         <a id="tutorialEnterMap" class="secondary-action" href="map.html?lang=en"><span data-en="Start exploring Kunshan" data-zh="开始探索昆山">Start exploring Kunshan</span><b>→</b></a>
       </section>
 
-      <footer><span class="footer-seal">昆山</span><p data-en="A bilingual interactive visualization for cultural discovery and route exploration." data-zh="用于文化发现与路线探索的双语交互可视化。">A bilingual interactive visualization for cultural discovery and route exploration.</p><a href="map.html?lang=en" data-enter-link data-en="Open map" data-zh="打开地图">Open map</a></footer>
+      <section class="evidence-guide" aria-labelledby="evidenceGuideTitle">
+        <div class="section-heading"><p data-en="READ THE EVIDENCE CAREFULLY" data-zh="谨慎阅读证据">READ THE EVIDENCE CAREFULLY</p><h2 id="evidenceGuideTitle" data-en="What this prototype can—and cannot—show" data-zh="这个原型能说明什么，不能说明什么">What this prototype can—and cannot—show</h2></div>
+        <div class="evidence-guide-grid">
+          <article><span>01</span><h3 data-en="Dataset coverage" data-zh="数据覆盖范围">Dataset coverage</h3><p data-en="Counts describe 82 records assembled for this course project. They do not represent every cultural resource in Kunshan." data-zh="数量只描述本课程项目整理的 82 条记录，并不代表昆山的全部文化资源。">Counts describe 82 records assembled for this course project. They do not represent every cultural resource in Kunshan.</p></article>
+          <article><span>02</span><h3 data-en="Documented relationships" data-zh="有记录的文化关联">Documented relationships</h3><p data-en="A network line means one represented relationship with a listed source. Its length does not measure strength, distance, or causality." data-zh="网络连线表示数据集中一条有来源的关系；线长不表示关系强度、地理距离或因果。">A network line means one represented relationship with a listed source. Its length does not measure strength, distance, or causality.</p></article>
+          <article><span>03</span><h3 data-en="Route heuristics" data-zh="路线启发式规则">Route heuristics</h3><p data-en="Route options compare simple rules and straight-line distance. They are not live travel, traffic, opening-hour, or accessibility guidance." data-zh="路线方案比较简单规则和直线距离，不是实时出行、路况、开放时间或无障碍指引。">Route options compare simple rules and straight-line distance. They are not live travel, traffic, opening-hour, or accessibility guidance.</p></article>
+        </div>
+      </section>
+
+      <footer><span class="footer-seal">昆山</span><p data-en="A bilingual interactive visualization for cultural discovery and route exploration." data-zh="用于文化发现与路线探索的双语交互可视化。">A bilingual interactive visualization for cultural discovery and route exploration.</p><a href="map.html?lang=en" data-enter-link data-en="Open map" data-zh="打开地图">Open map</a><a href="https://github.com/YiranZheng0206/Kunshan-Cultural-Interactive-Map/issues" target="_blank" rel="noopener noreferrer" data-en="Report a correction" data-zh="提交更正">Report a correction</a></footer>
     </main>
+    <div class="culture-transition" id="cultureTransition" aria-hidden="true">
+      <div class="transition-moon"></div>
+      <div class="transition-bridge"><i></i><i></i><i></i></div>
+      <div class="transition-fan"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="transition-seal">昆</div>
+      <div class="transition-water"><i></i><i></i><i></i><i></i></div>
+      <p><span data-en="Entering Kunshan's cultural landscape" data-zh="正在进入昆山文化图景">Entering Kunshan's cultural landscape</span><b>···</b></p>
+    </div>
     <script>
       (() => {
         const saved = (() => { try { return localStorage.getItem('kunshan-map-language'); } catch { return null; } })();
@@ -60,6 +77,17 @@
           document.querySelectorAll('#enterMap,#tutorialEnterMap,[data-enter-link]').forEach(link => { link.href = `map.html?lang=${language}`; });
         }
         document.querySelector('.landing-language').onclick = event => { const button = event.target.closest('[data-language]'); if (button) setLanguage(button.dataset.language); };
+        document.querySelectorAll('#enterMap,#tutorialEnterMap,[data-enter-link]').forEach(link => {
+          link.addEventListener('click', event => {
+            if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            event.preventDefault();
+            const overlay = document.getElementById('cultureTransition');
+            overlay.classList.add('is-active');
+            overlay.setAttribute('aria-hidden', 'false');
+            window.setTimeout(() => { window.location.href = link.href; }, 1250);
+          });
+        });
         setLanguage(state.language);
       })();
     </script>

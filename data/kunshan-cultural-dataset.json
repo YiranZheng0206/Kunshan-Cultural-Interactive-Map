@@ -1,8 +1,8 @@
 {
   "metadata": {
     "title": "Kunshan Cultural Map — source-grounded working dataset",
-    "version": "1.0.0",
-    "updated": "2026-09-23",
+    "version": "1.1.0",
+    "updated": "2026-10-21",
     "geography": "Kunshan, Jiangsu, China",
     "categories": [
       "Places",
@@ -42,10 +42,10 @@
       "placeId": "",
       "type": "Places",
       "motif": "地",
-      "image": "assets/fragments/01-tinglin_garden.jpg",
-      "imageSource": "https://commons.wikimedia.org/wiki/File:Jiangsu_Suzhou_Kunshan_-_Beizhoucun_IMG_7282.jpg",
-      "imageCredit": "Bjoertvedt · CC BY-SA 4.0",
-      "imageRole": "contextual culture image",
+      "image": "assets/fragments/01-tinglin_garden_verified.jpg",
+      "imageSource": "https://www.ksrmtzx.com/news/detail/147419",
+      "imageCredit": "第一昆山 / 昆山市融媒体中心",
+      "imageRole": "specific image of Tinglin Garden entrance",
       "summaryZh": "昆山市中心的园林，以顾炎武命名，并与昆山三宝相关联。"
     },
     {
@@ -1406,10 +1406,10 @@
       "placeId": "jinxi_town",
       "type": "Food",
       "motif": "味",
-      "image": "assets/fragments/55-sock_bottom_pastry.jpg",
-      "imageSource": "https://commons.wikimedia.org/wiki/File:Luxihe_Pastry_at_AEON_Suzhou_Yuanqu_Hudong-20240413.jpg",
-      "imageCredit": "Shwangtianyuan · CC BY-SA 4.0",
-      "imageRole": "specific or close contextual match",
+      "image": "assets/fragments/55-sock_bottom_pastry.png",
+      "imageSource": "https://www.xinhuanet.com/ci/20260319/dd6dab974fbf4db6963ae0acff44c70a/c.html",
+      "imageCredit": "新华网 · 美丽景区丨灵秀江南 水美锦溪",
+      "imageRole": "specific image labeled Sock-Bottom Pastry in the source article",
       "summaryZh": "与锦溪饮食文化相关的酥脆点心。"
     },
     {
@@ -2885,91 +2885,130 @@
       "publisher": "Kunshan Municipal People's Government",
       "title": "Tourism Destinations",
       "url": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "scope": "Whole-city destinations and recommended sites in Zhouzhuang, Jinxi, Qiandeng, Bacheng, Dianshanhu, Zhangpu, Huaqiao and central Kunshan."
+      "scope": "Whole-city destinations and recommended sites in Zhouzhuang, Jinxi, Qiandeng, Bacheng, Dianshanhu, Zhangpu, Huaqiao and central Kunshan.",
+      "sourceType": "Official municipal-government tourism page",
+      "verificationStatus": "Direct page checked 21 Oct 2026",
+      "accessNote": "Accessible and content-matched. No open-data or media-reuse license was identified on the page."
     },
     {
       "id": "ks-ich6",
       "publisher": "Kunshan Municipal People's Government",
       "title": "Sixth batch of representative intangible cultural heritage",
       "url": "https://www.ks.gov.cn/kss/c112598/202406/154c05692c0e41e4b9503059cd0614b9.shtml",
-      "scope": "Nine named living-heritage practices, categories, declaring areas, protection units and official introductions."
+      "scope": "Nine named living-heritage practices, categories, declaring areas, protection units and official introductions.",
+      "sourceType": "Official municipal-government notice",
+      "verificationStatus": "Direct page checked 21 Oct 2026",
+      "accessNote": "Accessible; publisher, date, document number and official list are visible."
     },
     {
       "id": "ks-place-names",
       "publisher": "Kunshan Municipal People's Government",
       "title": "Third batch of Wu-culture protected place names",
       "url": "https://www.ks.gov.cn/kss/c112598/202411/f07e2e41857040d7a1920a6353aeb24c.shtml",
-      "scope": "Official 212-name list covering natural features, settlements, roads, bridges, memorials and visitor places."
+      "scope": "Official 212-name list covering natural features, settlements, roads, bridges, memorials and visitor places.",
+      "sourceType": "Official municipal-government notice",
+      "verificationStatus": "Direct page checked 21 Oct 2026",
+      "accessNote": "Accessible; the official 212-entry protected place-name list is visible."
     },
     {
       "id": "ks-heritage",
       "publisher": "Kunshan Municipal People's Government",
       "title": "Cultural relic protection overview",
       "url": "https://www.ks.gov.cn/kss/c113206pu/202206/c405f8247cc64b2bb8b1e10d1dd01433.shtml",
-      "scope": "Counts and names of national and provincial protected cultural relic units."
+      "scope": "Counts and names of national and provincial protected cultural relic units.",
+      "sourceType": "Official municipal-government response",
+      "verificationStatus": "Direct page checked 21 Oct 2026",
+      "accessNote": "Accessible; the page lists protected sites and provenance but is not a complete visitor-location dataset."
     },
     {
       "id": "ks-buildings6",
       "publisher": "Kunshan Municipal People's Government",
       "title": "Sixth batch of cultural relic units and second batch of controlled buildings",
       "url": "https://data.ks.gov.cn/kss/whzc/202003/5cb76caf7f674f2ab395fcbdcc5dbe9b.shtml",
-      "scope": "Eleven cultural relic units and five controlled historic buildings."
+      "scope": "Eleven cultural relic units and five controlled historic buildings.",
+      "sourceType": "Official municipal-government notice",
+      "verificationStatus": "Direct page checked 21 Oct 2026",
+      "accessNote": "Accessible; publication metadata and the official tables are visible. This source is retained for provenance even though no current record cites it directly."
     },
     {
       "id": "ks-villages",
       "publisher": "Kunshan Municipal People's Government",
       "title": "Traditional village protection programme",
       "url": "https://data.ks.gov.cn/kss/ghjh/202406/7392d5f1b13144459869fbec5c2a5a54/files/c725f479bee54e6faa6e5762d66630d3.pdf",
-      "scope": "Traditional villages, documented ICH coverage, fifth-batch projects and the Opera Hundred Plays Museum."
+      "scope": "Traditional villages, documented ICH coverage, fifth-batch projects and the Opera Hundred Plays Museum.",
+      "sourceType": "Official municipal-government PDF",
+      "verificationStatus": "Indexed official PDF checked 21 Oct 2026",
+      "accessNote": "Search-indexed content matches the title and scope; direct automated retrieval timed out, so a local fallback copy is still needed."
     },
     {
       "id": "ks-food",
       "publisher": "Kunshan Municipal People's Government",
       "title": "Five award-winning Kunshan foods",
       "url": "https://www.ks.gov.cn/kss/ttxw/202407/da6fe60d561c49deadce176ec2019bfb.shtml",
-      "scope": "Official descriptions of Aozao noodles, flour-coated June crab, Wansan pork shank, Taihe braised duck and Jinhua cured pork."
+      "scope": "Official descriptions of Aozao noodles, flour-coated June crab, Wansan pork shank, Taihe braised duck and Jinhua cured pork.",
+      "sourceType": "Official municipal-government news page",
+      "verificationStatus": "Direct page checked 21 Oct 2026",
+      "accessNote": "Accessible and content-matched to the five named foods."
     },
     {
       "id": "ks-wonton",
       "publisher": "Kunshan Municipal People's Government",
       "title": "A bowl of bubble wontons",
       "url": "https://www.ks.gov.cn/kss/lvzx/202003/dc569bd8c1a346e8b8fa07b6deabc0fc.shtml",
-      "scope": "Dianshanhu old-street bubble wonton history and preparation."
+      "scope": "Dianshanhu old-street bubble wonton history and preparation.",
+      "sourceType": "Official municipal tourism article",
+      "verificationStatus": "Direct page checked 21 Oct 2026",
+      "accessNote": "Accessible and content-matched; the article identifies the shop history and preparation context."
     },
     {
       "id": "ks-food-fair",
       "publisher": "Kunshan Municipal People's Government",
       "title": "2024 Kunshan food fair",
       "url": "https://www.ks.gov.cn/kss/ksyw/202412/8808d9156d0f420695061e4a929cc296.shtml",
-      "scope": "Named Kunshan foods including Wansan pork shank and Zhengyi green rice dumplings."
+      "scope": "Named Kunshan foods including Wansan pork shank and Zhengyi green rice dumplings.",
+      "sourceType": "Official municipal-government news page",
+      "verificationStatus": "Direct page checked 21 Oct 2026",
+      "accessNote": "Accessible; it supports named foods and event context, not comparative quality claims."
     },
     {
       "id": "ks-culture-policy",
       "publisher": "Kunshan Municipal People's Government",
       "title": "Tourism and cultural development plan",
       "url": "https://www.ks.gov.cn/kss/c112598/201802/84e9f12b86e34c67940e35753455e343.shtml",
-      "scope": "Named cultural elements including Kunqu, Jinxi xuanjuan, ancient tiles, Qiandeng tea, Kunbei songs, Lujia dragon dance and Huaqiao silk-and-bamboo music."
+      "scope": "Named cultural elements including Kunqu, Jinxi xuanjuan, ancient tiles, Qiandeng tea, Kunbei songs, Lujia dragon dance and Huaqiao silk-and-bamboo music.",
+      "sourceType": "Official municipal-government policy page",
+      "verificationStatus": "Indexed official page checked 21 Oct 2026",
+      "accessNote": "The official search record matches the title and named cultural elements; direct automated opening was inconsistent."
     },
     {
       "id": "ks-opera-museum",
       "publisher": "Kunshan Municipal People's Government",
       "title": "Opera Hundred Plays Museum",
-      "url": "https://www.ks.gov.cn/kss/ttxw/202311/c977360a7e914e0b9f0a5d5d379cdd9e.shtml",
-      "scope": "Museum opened in 2023, four permanent halls, 348 opera genres and more than 4,000 donated objects."
+      "url": "https://www.ks.gov.cn/kss/xqbxxwdt/202401/7f3243057f1e415b8f4530a40de5d3cc.shtml",
+      "scope": "Museum opened in 2023 and presents all 348 Chinese opera genres through exhibition, education and research spaces.",
+      "sourceType": "Official municipal-government museum report",
+      "verificationStatus": "Replacement direct page checked 21 Oct 2026",
+      "accessNote": "Replaces an older URL that redirected to the government homepage. The current page directly supports the 348-genre museum claim."
     },
     {
       "id": "unesco-kunqu",
       "publisher": "UNESCO",
       "title": "Kun Qu Opera",
       "url": "https://ich.unesco.org/en/RL/kun-qu-opera-00004",
-      "scope": "International intangible cultural heritage documentation for Kunqu opera."
+      "scope": "International intangible cultural heritage documentation for Kunqu opera.",
+      "sourceType": "UNESCO Intangible Cultural Heritage record",
+      "verificationStatus": "Authoritative record URL checked 21 Oct 2026",
+      "accessNote": "The record is authoritative; automated access may trigger anti-bot verification."
     },
     {
       "id": "ks-tinglin",
       "publisher": "Kunshan Municipal People's Government",
       "title": "Tinglin Garden",
       "url": "https://www.ks.gov.cn/kss/zmjd/202403/8aa3e3aef8c74680805e7679031b5ab3.shtml",
-      "scope": "Tinglin Garden and the three Kunshan treasures: Kun stone, viburnum and twin lotus."
+      "scope": "Tinglin Garden and the three Kunshan treasures: Kun stone, viburnum and twin lotus.",
+      "sourceType": "Official municipal-government attraction page",
+      "verificationStatus": "Direct page checked 21 Oct 2026",
+      "accessNote": "Accessible English attraction page; it supports Tinglin Garden history and the three-treasures connection."
     }
   ],
   "imageCatalog": {

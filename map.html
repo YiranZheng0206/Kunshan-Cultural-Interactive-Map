@@ -7,9 +7,10 @@
     <title>Kunshan Cultural Map</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%231c4d57' d='M8 11h48v42H8z'/%3E%3Cpath fill='%23f3b841' d='M16 21h32v5H16zm0 10h24v5H16zm0 10h32v5H16z'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="vendor/leaflet.css" />
-    <link rel="stylesheet" href="styles.css?v=cultural-polish-10" />
+    <link rel="stylesheet" href="styles.css?v=road-route-19" />
   </head>
   <body>
+    <a class="skip-link" href="#mainWorkspace">Skip to the visualization</a>
     <div class="app-shell">
       <aside class="sidebar" id="explorePanel" aria-label="Cultural discovery">
         <header class="brand"><a class="brand-mark" href="index.html" aria-label="Home">昆</a><div><strong id="brandTitle">Kunshan Cultural Map</strong><small id="brandSubtitle">Explore culture, place by place</small></div><div class="language-toggle" role="group" aria-label="Language"><button type="button" data-language="en">EN</button><button type="button" data-language="zh">中文</button></div></header>
@@ -21,19 +22,66 @@
         <button id="surpriseButton" class="surprise" type="button"><span>✦</span> Surprise me</button>
       </aside>
 
-      <main class="map-area">
+      <main class="map-area" id="mainWorkspace">
         <div class="map-toolbar"><span id="mapLabel" class="map-label"><i></i> Kunshan · Cultural discovery</span><div class="zoom-controls"><button id="zoomIn" aria-label="Zoom in">+</button><button id="zoomOut" aria-label="Zoom out">−</button><button id="resetMap" aria-label="Reset map">⌖</button></div></div>
         <div class="view-switch" role="group" aria-label="Visualization view"><button id="mapViewButton" type="button" aria-pressed="true">Map</button><button id="patternsViewButton" type="button" aria-pressed="false">Patterns</button></div>
-        <section id="patternsPanel" class="patterns-panel" hidden aria-label="Cultural patterns"><div class="patterns-intro"><h2 id="patternsTitle">Cultural patterns</h2><p id="patternsIntro">Compare categories and explore sourced cultural connections.</p></div><div class="patterns-grid"><div class="chart-card"><h3 id="chartTitle">Discoveries by category</h3><p id="chartHint">Select a bar to filter the map and list.</p><div id="categoryChart" class="category-chart"></div></div><div class="chart-card network-card"><h3 id="networkTitle">Cultural connections</h3><p id="networkHint">Select a node to see its story. Links come from the source dataset, not travel routes.</p><svg id="networkGraph" viewBox="0 0 600 390" role="img" aria-label="Network of related cultural discoveries"></svg><div id="networkLegend" class="network-legend"></div></div></div></section>
+        <section class="task-guide" aria-labelledby="taskGuideTitle">
+          <div class="task-guide-copy">
+            <span id="taskGuideEyebrow">ONE TASK · FIVE LINKED VIEWS</span>
+            <strong id="taskGuideTitle">Build an evidence-linked cultural route</strong>
+            <small id="taskGuideNote">Begin with an overview, inspect a documented connection, locate records, read their sources, then compare route heuristics.</small>
+          </div>
+          <div class="idiom-rail" role="group" aria-label="Five linked visualization views">
+            <button type="button" data-idiom="basic"><b>01</b><span id="idiomBasic">Overview</span></button>
+            <button type="button" data-idiom="network"><b>02</b><span id="idiomNetwork">Connections</span></button>
+            <button type="button" data-idiom="spatial" class="active"><b>03</b><span id="idiomSpatial">Places</span></button>
+            <button type="button" data-idiom="interactive"><b>04</b><span id="idiomInteractive">Inspect</span></button>
+            <button type="button" data-idiom="advanced"><b>05</b><span id="idiomAdvanced">Compare</span></button>
+          </div>
+        </section>
+        <section id="patternsPanel" class="patterns-panel" hidden aria-label="Cultural patterns">
+          <div class="patterns-intro"><h2 id="patternsTitle">Cultural patterns</h2><p id="patternsIntro">Compare categories and explore sourced cultural connections.</p></div>
+          <div class="patterns-grid">
+            <div class="chart-card basic-card" data-pattern-card="basic">
+              <div class="idiom-tag"><span>01</span><b id="basicTag">BASIC · OVERVIEW</b></div>
+              <h3 id="chartTitle">Discoveries by category</h3><p id="chartHint">Select a bar to filter the map and list.</p>
+              <div id="categoryChart" class="category-chart"></div>
+              <div class="coverage-summary" id="coverageSummary" aria-label="Dataset coverage summary"></div>
+              <p class="evidence-boundary" id="basicBoundary">Evidence boundary: counts describe this 82-record course dataset, not all cultural heritage in Kunshan.</p>
+            </div>
+            <div class="chart-card network-card" data-pattern-card="network">
+              <div class="idiom-tag"><span>02</span><b id="networkTag">NETWORK · DOCUMENTED LINKS</b></div>
+              <h3 id="networkTitle">Cultural connections</h3><p id="networkHint">Select a node to see its story. Links come from the source dataset, not travel routes.</p>
+              <svg id="networkGraph" viewBox="0 0 600 390" role="img" aria-label="Network of related cultural discoveries"></svg>
+              <div id="networkLegend" class="network-legend"></div>
+              <div id="networkInspector" class="network-inspector" aria-live="polite"></div>
+              <p class="evidence-boundary" id="networkBoundary">Evidence boundary: a line means one documented relationship in this dataset. Its length and position do not measure distance, strength, or causality.</p>
+            </div>
+          </div>
+          <section class="source-register-card" aria-labelledby="sourceRegisterTitle">
+            <div><h3 id="sourceRegisterTitle">Source register</h3><p id="sourceRegisterIntro">The factual source collections used by this prototype.</p></div>
+            <div id="sourceRegister" class="source-register"></div>
+          </section>
+        </section>
         <div id="mapViewport" class="map-viewport" aria-label="Interactive Kunshan map. Drag and zoom to explore." tabindex="0"></div>
+        <div id="routeJourneyAnimation" class="route-journey-animation" aria-hidden="true">
+          <div class="journey-wash"></div>
+          <div class="journey-card">
+            <div class="journey-scene"><i class="journey-bridge"></i><i class="journey-water"></i><i class="journey-boat">◆</i></div>
+            <div class="journey-copy"><span id="journeyEyebrow">ROUTE IN PROGRESS</span><strong id="journeyTitle">Tracing a route through Kunshan</strong><small id="journeyNote">Following roads between cultural places…</small></div>
+            <div class="journey-seal">昆山</div>
+          </div>
+        </div>
         <div id="mapHint" class="map-hint">Drag to explore · Scroll or use controls to zoom</div>
+        <div class="map-boundary" id="mapBoundary">Approximate cultural anchors · not surveyed entrances or live navigation</div>
+        <div id="interactionStatus" class="sr-only" role="status" aria-live="polite"></div>
       </main>
 
       <aside id="detailPanel" class="detail-panel" aria-live="polite"></aside>
       <section id="routePanel" class="route-panel" aria-label="Cultural route planning"></section>
     </div>
-    <script src="data.js"></script>
+    <script src="data.js?v=source-audit-17"></script>
     <script src="vendor/leaflet.js"></script>
-    <script src="app.js?v=clean-markers-8"></script>
+    <script src="app.js?v=route-animation-21"></script>
   </body>
 </html>
