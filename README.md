@@ -3,7 +3,7 @@
 A bilingual, source-linked visualization for exploring cultural records in Kunshan. Team 6: **Yihong Lin, Yiran Zheng, and Sitong Chang**.
 
 - Working artifact: https://kunshan-cultural-interactive-map.vercel.app/
-- Demo video: https://youtu.be/hiJvn93Gk6s
+- Demo video: https://www.youtube.com/watch?v=1ZriEn9_z4g
 - Dataset repository: https://github.com/JuniceLin/Kunshan-Map
 - Course: Duke Kunshan University, INFOSCI 301, Autumn 2026
 - SDG connection: **Goal 11 — Sustainable Cities and Communities, Target 11.4**
