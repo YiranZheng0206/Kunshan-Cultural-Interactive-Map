@@ -17,9 +17,6 @@ https://github.com/user-attachments/assets/5a7519f4-4d0c-44e6-817c-bbdc563e6cd3
 
 
 
-
-The English transcript is included in Appendix E of the project report.
-
 ## Run
 
 Open with a local HTTP server (or deploy the repository to Vercel):
