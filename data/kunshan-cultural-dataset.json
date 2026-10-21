@@ -43,9 +43,9 @@
       "type": "Places",
       "motif": "地",
       "image": "assets/fragments/01-tinglin_garden_verified.jpg",
-      "imageSource": "https://www.ksrmtzx.com/news/detail/147419",
-      "imageCredit": "第一昆山 / 昆山市融媒体中心",
-      "imageRole": "specific image of Tinglin Garden entrance",
+      "imageSource": "assets/fragments/01-tinglin_garden_verified.jpg",
+      "imageCredit": "Team photograph by Yihong Lin · used with photographer's permission",
+      "imageRole": "specific image of Tinglin Garden entrance photographed during team fieldwork",
       "summaryZh": "昆山市中心的园林，以顾炎武命名，并与昆山三宝相关联。"
     },
     {
@@ -1406,10 +1406,10 @@
       "placeId": "jinxi_town",
       "type": "Food",
       "motif": "味",
-      "image": "assets/fragments/55-sock_bottom_pastry.png",
-      "imageSource": "https://www.xinhuanet.com/ci/20260319/dd6dab974fbf4db6963ae0acff44c70a/c.html",
-      "imageCredit": "新华网 · 美丽景区丨灵秀江南 水美锦溪",
-      "imageRole": "specific image labeled Sock-Bottom Pastry in the source article",
+      "image": "assets/fragments/55-sock_bottom_pastry.jpg",
+      "imageSource": "assets/fragments/55-sock_bottom_pastry.jpg",
+      "imageCredit": "Team photograph by Yihong Lin · used with photographer's permission",
+      "imageRole": "specific image of Sock-Bottom Pastry production and finished pastries photographed during team fieldwork",
       "summaryZh": "与锦溪饮食文化相关的酥脆点心。"
     },
     {
@@ -3038,9 +3038,9 @@
       "credit": "Kunshan Government tourism page — Tianfu Ecological Garden"
     },
     "tinglin": {
-      "path": "assets/cards/tinglin.jpg",
-      "sourceUrl": "https://www.ks.gov.cn/kss/Tourism/enlist_tt_hd.shtml",
-      "credit": "Kunshan Government tourism page — Tinglin Garden"
+      "path": "assets/fragments/01-tinglin_garden_verified.jpg",
+      "sourceUrl": "assets/fragments/01-tinglin_garden_verified.jpg",
+      "credit": "Team photograph by Yihong Lin — Tinglin Garden entrance"
     },
     "forest": {
       "path": "assets/cards/forest.jpg",

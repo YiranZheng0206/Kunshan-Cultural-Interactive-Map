@@ -27,7 +27,7 @@ This audit separates what the current web artifact demonstrates from what remain
 
 ## Image verification result
 
-- Tinglin Garden and Sock-Bottom Pastry now use record-specific images from identifiable publisher pages.
+- Tinglin Garden and Sock-Bottom Pastry now use record-specific photographs taken by team member Yihong Lin and included with the photographer's permission.
 - Most other files are Wikimedia Commons images with a license named in the record credit, but many are search-derived or contextual rather than photographs of the exact named site/object.
 - The interface now labels each image conservatively as record-specific, source-listed but not independently subject-checked, or contextual.
 - Record-specific matching and permission remain incomplete for many images. See `IMAGE_AUDIT.md`; contextual images must not be used as evidence that the named item looks exactly as shown.
@@ -35,7 +35,7 @@ This audit separates what the current web artifact demonstrates from what remain
 ## Requirements still incomplete or requiring human evidence
 
 1. **Real transport routing:** The interface now requests road geometry, distance and driving duration from OSRM instead of drawing straight lines. “Most convenient” links every leg to AMap for live public-transport planning because this static prototype does not have a licensed transit API key. Transfers, schedules, fares and accessibility remain external and require field checking before the route can be presented as complete journey guidance.
-2. **Image rights and exact matching:** all 82 images still need final record-by-record subject and reuse-permission confirmation. The two newsroom images especially require permission/terms review.
+2. **Image rights and exact matching:** the two previously used newsroom images have been replaced by team photographs. The remaining third-party images still need final record-by-record subject, attribution and reuse-permission confirmation before an unrestricted public release.
 3. **Accessibility verification:** keyboard affordances and reduced-motion behavior exist, but a documented screen-reader, keyboard-only, color-contrast, mobile Safari and desktop cross-browser test is still required.
 4. **Fallback evidence:** cached map imagery exists, but the final team should test the exact repository at the submitted commit with the network unavailable and record the result/date.
 5. **Community validation:** peer feedback does not establish visitor learning, cultural representativeness, community benefit or SDG 11.4 impact. The next test should include intended Kunshan users and relevant cultural stewards.

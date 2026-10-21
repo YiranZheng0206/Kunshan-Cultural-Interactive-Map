@@ -14,8 +14,8 @@ Audit date: 20–21 October 2026
 
 | Record | Previous problem | Replacement source | Current status |
 |---|---|---|---|
-| Tinglin Garden / 亭林园 | The image showed an unrelated peri-urban pond rather than Tinglin Garden. | 第一昆山 / 昆山市融媒体中心, page identifying the Tinglin Garden entrance | Subject match verified; reuse terms still require confirmation. |
-| Sock-Bottom Pastry / 袜底酥 | The image showed a Luxihe pastry storefront rather than the named Jinxi pastry. | Xinhua article “美丽景区丨灵秀江南 水美锦溪,” where the image is labeled 袜底酥 | Subject match verified; reuse terms still require confirmation. |
+| Tinglin Garden / 亭林园 | The image showed an unrelated peri-urban pond rather than Tinglin Garden. | Team photograph by Yihong Lin showing the signed Tinglin Garden entrance | Subject match verified; photographer permitted use in this project. |
+| Sock-Bottom Pastry / 袜底酥 | The image showed a Luxihe pastry storefront rather than the named Jinxi pastry. | Team photograph by Yihong Lin showing pastry production and finished pastries during fieldwork | Subject match verified; photographer permitted use in this project. Because people are visible, the photograph is retained as project documentation rather than released as an openly reusable image. |
 
 ## Priority records for further source-page verification
 
